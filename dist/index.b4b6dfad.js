@@ -2929,7 +2929,7 @@ var _client = require("react-dom/client");
 //Import statement to indicate that you need to bundle ./index.scss
 var _indexScss = require("./index.scss");
 //Main component (will eventually use all the others)
-const jmdbApplication = ()=>{
+const JMDBApplication = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "jmdb-flix",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -2945,18 +2945,18 @@ const jmdbApplication = ()=>{
         columnNumber: 9
     }, undefined);
 };
-_c = jmdbApplication;
+_c = JMDBApplication;
 //Finds the root of your app
 const container = document.querySelector("#root");
 const root = (0, _client.createRoot)(container);
 //Tells React to render your app in the root DOM element
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("jmdbApplication", {}, void 0, false, {
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(JMDBApplication, {}, void 0, false, {
     fileName: "src/index.jsx",
     lineNumber: 20,
     columnNumber: 13
 }, undefined));
 var _c;
-$RefreshReg$(_c, "jmdbApplication");
+$RefreshReg$(_c, "JMDBApplication");
 
   $parcel$ReactRefreshHelpers$98a3.postlude(module);
 } finally {
