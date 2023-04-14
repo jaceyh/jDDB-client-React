@@ -1,11 +1,13 @@
-.jmdb-flix {
+/*
+.main-view {
   color: steelblue;
   size: 18;
   font: 1em sans-serif;
-}/*# sourceMappingURL=index.css.map */
+}# sourceMappingURL=index.css.map 
 
 img {
   padding: 0 6px;
-  float: left;
-  width: 24.99999%;
+  max-width: 24.99999%;
+  height: auto
 }
+*/

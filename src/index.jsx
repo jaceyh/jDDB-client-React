@@ -6,7 +6,7 @@ import "./index.scss";
 
 //Main component (will eventually use all the others)
 const JMDBApplication = () => {
-    return <MainView />;
+    return <span className="main-view"><MainView /></span>
 };
 
 //Finds the root of your app
