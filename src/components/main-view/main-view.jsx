@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
+/*
 export const MainView = () => {
   const [movies, setMovies] = useState([
     { 
@@ -37,8 +39,29 @@ export const MainView = () => {
       description: "Blackfish is a 2013 documentary film that explores the controversy surrounding the treatment of killer whales in captivity, specifically those at the popular marine park SeaWorld. The film focuses on the story of Tilikum, a captive killer whale that has been involved in the deaths of several people, including trainers. Through interviews with former SeaWorld trainers, scientists, and activists, the film examines the physical and emotional stress experienced by these highly intelligent creatures as well as the dangers posed to their human trainers. The filmmakers also delve into the history of killer whale capture and the subsequent rise of marine parks as a tourist attraction, highlighting the ethical and moral issues that arise from keeping these creatures in captivity. The film ultimately makes a powerful case for the release of captive orcas into the wild and the end of the practice of breeding orcas in captivity."
     }
   ]);
+  */
+
+  const [movies, setMovies] = useState([]);
 
   const [selectedMovie, setSelectedMovie] = useState(null);
+
+  useEffect(() => {
+    fetch("")
+      .then((response) => response.json())
+      .then((data) => {
+        const moviesFromApi = data.docs.map((doc) => {
+          return {
+            id: doc.key,
+            title: doc.title,
+            image:``,
+            director: doc.author_name?.[0]
+          };
+        });
+        setMovies(moviessFromApi);
+      });
+  },[]);
+      
+
 
   if (selectedMovie) {
     return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}
@@ -62,4 +85,3 @@ export const MainView = () => {
       ))}
     </div>
   );
-}
