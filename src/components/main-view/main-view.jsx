@@ -16,16 +16,15 @@ import { MovieView } from "../movie-view/movie-view";
             id: doc.key,
             Name: doc.name,
             ImagePath: doc.img,
-            Directors: doc.director_name?.[0],
+            Director: doc.director_name?.[0],
             Tags: doc.tag_name?.[0],
             Description: doc.description
           };
         });
-        setMovies(moviessFromApi);
+        setMovies(moviesFromApi);
       });
   },[]);
       
-
 
   if (selectedMovie) {
     return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)}
