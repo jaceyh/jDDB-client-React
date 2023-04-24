@@ -27154,65 +27154,90 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$f7a6.prelude(module);
 
 try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MainView", ()=>MainView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
-const [movies, setMovies] = (0, _react.useState)([]);
-const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
-(0, _react.useEffect)(()=>{
-    fetch("https://git.heroku.com/jmdb-app.git").then((response)=>response.json()).then((data)=>{
-        const moviesFromApi = data.docs.map((doc)=>{
-            return {
-                id: doc.key,
-                Name: doc.name,
-                ImagePath: doc.img,
-                Director: doc.director_name?.[0],
-                Tags: doc.tag_name?.[0],
-                Description: doc.description
-            };
+var _s = $RefreshSig$();
+const MainView = ()=>{
+    _s();
+    const [movies, setMovies] = (0, _react.useState)([]);
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        fetch("https://jmdb-movie-api.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
+            const moviesFromApi = data.movies.map((movie)=>{
+                return {
+                    id: movie.key,
+                    name: movie.Name,
+                    image: movie.ImagePath,
+                    director: movie.Director.join(","),
+                    tags: movie.Tags.join(","),
+                    description: movie.Description
+                };
+            });
+            setMovies(moviesFromApi);
+        }).catch((error)=>{
+            console.log("Error fetching movies:", error);
         });
-        setMovies(moviesFromApi);
-    });
-}, []);
-if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-    movie: selectedMovie,
-    onBackClick: ()=>setSelectedMovie(null)
-}, void 0, false, {
-    fileName: "src/components/main-view/main-view.jsx",
-    lineNumber: 30,
-    columnNumber: 12
-}, undefined);
-if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-    children: "The list is empty!"
-}, void 0, false, {
-    fileName: "src/components/main-view/main-view.jsx",
-    lineNumber: 35,
-    columnNumber: 12
-}, undefined);
-return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-    children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-            movie: movie,
-            onMovieClick: (newSelectedMovie)=>{
-                setSelectedMovie(newSelectedMovie);
-            }
-        }, movie.id, false, {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 41,
-            columnNumber: 9
-        }, undefined))
-}, void 0, false, {
-    fileName: "src/components/main-view/main-view.jsx",
-    lineNumber: 39,
-    columnNumber: 5
-}, undefined);
+    }, []);
+    //Render movies data in component
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                    movie: movie,
+                    onMovieClick: (newSelectedMovie)=>{
+                        setSelectedMovie(newSelectedMovie);
+                    }
+                }, movie.id, false, {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 35,
+                    columnNumber: 11
+                }, undefined)),
+            selectedMovie && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+                movie: selectedMovie,
+                onBackClick: ()=>setSelectedMovie(null)
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 39,
+                columnNumber: 27
+            }, undefined),
+            selectedMovie && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+                movie: selectedMovie,
+                onBackClick: ()=>setSelectedMovie(null)
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 41,
+                columnNumber: 9
+            }, undefined),
+            movies.length === 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: "The list is empty!"
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 43,
+                columnNumber: 33
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 33,
+        columnNumber: 7
+    }, undefined);
+};
+_s(MainView, "PO+XgOji7E32nFJj3H5UPLPJ7w4=");
+_c = MainView;
+var _c;
+$RefreshReg$(_c, "MainView");
 
   $parcel$ReactRefreshHelpers$f7a6.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s"}],"bwuIu":[function(require,module,exports) {
+},{"react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB","react/jsx-dev-runtime":"iTorj"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27230,7 +27255,7 @@ const MovieCard = ({ movie , onMovieClick  })=>{
         onClick: ()=>{
             onMovieClick(movie);
         },
-        children: movie.title
+        children: movie.Name
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
         lineNumber: 5,
@@ -27239,20 +27264,14 @@ const MovieCard = ({ movie , onMovieClick  })=>{
 };
 _c = MovieCard;
 // Here is where we define all the props constraints for the BookCard
-MovieCard.propTypes = {
+MovieCard.PropTypes = {
     movie: (0, _propTypesDefault.default).shape({
         Name: (0, _propTypesDefault.default).string.isRequired,
-        Director: (0, _propTypesDefault.default).array({
-            Director: director.key,
-            Director: director.key
-        }),
+        Director: (0, _propTypesDefault.default).string,
         ImagePath: (0, _propTypesDefault.default).string,
-        Tags: PropType.array({
-            Tags: Tags.key,
-            Tags: Tags.key
-        }),
-        Description: (0, _propTypesDefault.default).string
-    }).isRequired,
+        Tags: (0, _propTypesDefault.default).string,
+        Description: (0, _propTypesDefault.default).string.isRequired
+    }),
     onMovieClick: (0, _propTypesDefault.default).func.isRequired
 };
 var _c;
