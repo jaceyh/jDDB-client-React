@@ -8,7 +8,7 @@ export const MainView = () => {
 
 
 useEffect(() => {
-  fetch("https://jmdb-movie-api.herokuapp.com/movies")
+  fetch("https://jmdb-app.herokuapp.com/movies")
     .then((response) => response.json())
     .then((data) => {
       const moviesFromApi = data.movies.map((movie) => {
