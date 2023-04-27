@@ -11,7 +11,7 @@ useEffect(() => {
   fetch("https://jmdb-app.herokuapp.com/movies")
     .then((response) => response.json())
     .then((data) => {
-      const moviesFromApi = data.map((movie) => {
+      const moviesFromApi = data.movies((movie) => {
         return {
           id: movie.key,
           name: movie.Name,

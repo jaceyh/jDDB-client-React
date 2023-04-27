@@ -27169,7 +27169,7 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         fetch("https://jmdb-app.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.movies.map((movie)=>{
+            const moviesFromApi = data.movies((movie)=>{
                 return {
                     id: movie.key,
                     name: movie.Name,
@@ -27266,6 +27266,7 @@ _c = MovieCard;
 // Here is where we define all the props constraints for the BookCard
 MovieCard.PropTypes = {
     movie: (0, _propTypesDefault.default).shape({
+        Id: (0, _propTypesDefault.default).string,
         Name: (0, _propTypesDefault.default).string.isRequired,
         Director: (0, _propTypesDefault.default).string,
         ImagePath: (0, _propTypesDefault.default).string,
