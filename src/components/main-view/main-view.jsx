@@ -36,7 +36,6 @@ useEffect(() => {
             setSelectedMovie(newSelectedMovie);
           }} />
         ))}
-        {selectedMovie && <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />}
         {selectedMovie && (
         <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
         )}
@@ -44,5 +43,3 @@ useEffect(() => {
       </div>
     );
   };
-
-
