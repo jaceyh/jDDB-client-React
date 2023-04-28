@@ -27169,7 +27169,7 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         fetch("https://jmdb-app.herokuapp.com/movies").then((response)=>response.json()).then((data)=>{
-            const moviesFromApi = data.movies((movie)=>{
+            const moviesFromApi = data.map((movie)=>{
                 return {
                     id: movie.key,
                     name: movie.Name,
