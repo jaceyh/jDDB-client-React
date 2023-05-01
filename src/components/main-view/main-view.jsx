@@ -4,38 +4,37 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
+    const [user, setUser] = useState(storedUser? storedUser : null);
+    const [token, setToken] = useState(storedToken? storedToken : null);
+    const [movies, setMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
 
 useEffect(() => {
-  if (!token) {
-    return;
-  }
-  fetch("https://jmdb-app.herokuapp.com/movies", {
-    headers: { Authorization: `Bearer ${token}` }
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      const moviesFromApi = data.map((movie) => {
-        return {
-          id: movie.key,
-          name: movie.Name,
-          image: movie.ImagePath,
-          director: movie.Director.join(","),
-          tags: movie.Tags.join(","),
-          description: movie.Description
-        }
-      });
-      setMovies(moviesFromApi);
+    if (!token) return;
+    fetch("https://jmdb-app.herokuapp.com/movies", {
+        headers: { Authorization: `Bearer ${token}` },
     })
-    .catch((error) => {
-      console.log("Error fetching movies:", error);
-    });
-  }, [token]);
-
+        .then((response) => response.json())
+        .then((data) => {
+            const moviesFromApi = data.map((movie) => {
+                return {
+                    id: movie.key,
+                    name: movie.Name,
+                    image: movie.ImagePath,
+                    director: movie.Director.join(","),
+                    tags: movie.Tags.join(","),
+                    description: movie.Description
+                }
+            });
+        setMovies(moviesFromApi);
+        })
+        .catch((error) => {
+            console.log("Error fetching movies:", error);
+        });
+    }, [token]);
 
 if (!user) {
   return (
