@@ -8,7 +8,29 @@ export const SignupView = () => {
     const [date, setDob] = useState("");
     const handleSubmit = (event) => {
     event.preventDefault();
-}
+    
+    const data = {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
+    };
+
+    fetch("http://jmdb-app.herokuapp.com/", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then((response) => {
+        if (response.ok) {
+            alert("Signup successful");
+            window.location.reload();
+        } else {
+            alert("Signup failed");
+        }
+    });
+};
 
 return (
     <form onSubmit={handleSubmit}>
