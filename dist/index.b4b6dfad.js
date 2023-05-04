@@ -28414,7 +28414,7 @@ const LoginView = ({ onLoggedIn  })=>{
             date,
             secret: password
         };
-        fetch("https://jmdb-app.heroku.com/login", {
+        fetch("https://jmdb-app.herokuapp.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
