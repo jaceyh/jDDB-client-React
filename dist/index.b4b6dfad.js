@@ -27182,7 +27182,7 @@ const MainView = ()=>{
         }).then((response)=>response.json()).then((data)=>{
             const moviesFromApi = data.map((movie)=>{
                 return {
-                    id: movie.key,
+                    id: movie._id,
                     name: movie.Name,
                     image: movie.ImagePath,
                     director: movie.Director.join(","),
@@ -28410,7 +28410,7 @@ const LoginView = ({ onLoggedIn  })=>{
             access: username,
             secret: password
         };
-        fetch("https://jmdb-app.heroku.com/login", {
+        fetch("https://jmdb-app.herokuapp.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
