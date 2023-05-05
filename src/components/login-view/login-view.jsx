@@ -4,14 +4,12 @@ import { useState } from "react";
 export const LoginView = ({ onLoggedIn }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [date, setDob] = useState("");
     const handleSubmit = (event) => {
     //this prevents the default behavior of the form which is to reload the entire page
     event.preventDefault();
 
     const data = {
-        access: username, email, date,
+        access: username,
         secret: password
     };
 
@@ -62,27 +60,6 @@ export const LoginView = ({ onLoggedIn }) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         minLength="8"
-        required
-        />
-      </label>
-      <label>
-        Email:
-        <input
-        id="emailAddress"
-        type="email"
-        value={email}
-        placeholder="user@example.com"
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        />
-      </label>
-      <label>
-        Date of Birth:
-        <input
-        id="dob"
-        type="date"
-        value={date}
-        onChange={(e) => setDob(e.target.value)}
         required
         />
       </label>
