@@ -9,8 +9,8 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = {
-        access: username,
-        secret: password
+        Username: username,
+        Password: password
     };
 
     fetch("https://jmdb-app.herokuapp.com/login", {
@@ -26,7 +26,7 @@ export const LoginView = ({ onLoggedIn }) => {
             console.error(error);
             return Promise.reject(error);
         })
-        
+    
         .then((data) => {
             console.log("Login response: ", data);
             if (data.user) {
@@ -35,7 +35,7 @@ export const LoginView = ({ onLoggedIn }) => {
                 onLoggedIn(data.user, data.token);
             }else{
                 alert("No such user.");
-            }
+            }   
     });
   };
 

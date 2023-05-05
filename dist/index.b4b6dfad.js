@@ -28407,8 +28407,8 @@ const LoginView = ({ onLoggedIn  })=>{
         //this prevents the default behavior of the form which is to reload the entire page
         event.preventDefault();
         const data = {
-            access: username,
-            secret: password
+            Username: username,
+            Password: password
         };
         fetch("https://jmdb-app.herokuapp.com/login", {
             method: "POST",
