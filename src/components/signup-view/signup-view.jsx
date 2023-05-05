@@ -13,7 +13,7 @@ export const SignupView = () => {
         Username: username,
         Password: password,
         Email: email,
-        Birthday: birthday
+        Birthday: date
     };
 
     fetch("http://jmdb-app.herokuapp.com/", {
