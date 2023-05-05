@@ -55,7 +55,6 @@ export const LoginView = ({ onLoggedIn }) => {
       <label>
         Password:
         <input
-        id="password"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}

@@ -37,7 +37,6 @@ return (
         <label>
             Username:
             <input
-                id="username"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -48,7 +47,6 @@ return (
         <label>
             Password:
             <input
-                id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
