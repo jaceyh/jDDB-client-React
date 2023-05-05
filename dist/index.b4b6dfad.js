@@ -28516,16 +28516,16 @@ const SignupView = ()=>{
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
     const [email, setEmail] = (0, _react.useState)("");
-    const [date, setDob] = (0, _react.useState)("");
+    const [birthday, setBirthday] = (0, _react.useState)("");
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
             Username: username,
             Password: password,
             Email: email,
-            Birthday: date
+            Birthday: birthday
         };
-        fetch("http://jmdb-app.herokuapp.com/", {
+        fetch("https://jmdb-app.herokuapp.com/", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -28610,8 +28610,8 @@ const SignupView = ()=>{
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         id: "dob",
                         type: "date",
-                        value: date,
-                        onChange: (e)=>setDob(e.target.value),
+                        value: birthday,
+                        onChange: (e)=>setBirthday(e.target.value),
                         required: true
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
@@ -28639,7 +28639,7 @@ const SignupView = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(SignupView, "hGVAVssV1A5DMyraHPdaJeJ8nGg=");
+_s(SignupView, "jsOQN3GC2XlBG9ITlzCdpyJOnso=");
 _c = SignupView;
 var _c;
 $RefreshReg$(_c, "SignupView");
