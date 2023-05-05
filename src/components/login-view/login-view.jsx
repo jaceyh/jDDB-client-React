@@ -22,6 +22,10 @@ export const LoginView = ({ onLoggedIn }) => {
     })
         //transforms the response content into a JSON object that your code can use to extract the JWT sent by the API
         .then((response) => response.json())
+        .catch(error => {
+            console.error(error);
+            return Promise.reject(error);
+        })
         
         .then((data) => {
             console.log("Login response: ", data);
@@ -32,11 +36,6 @@ export const LoginView = ({ onLoggedIn }) => {
             }else{
                 alert("No such user.");
             }
-            if (response.ok) {
-                onLoggedIn(username);
-        } else {
-        alert("Login failed");
-      }
     });
   };
 
