@@ -22,7 +22,7 @@ useEffect(() => {
         .then((data) => {
             const moviesFromApi = data.map((movie) => {
                 return {
-                    id: movie.key,
+                    id: movie._id,
                     name: movie.Name,
                     image: movie.ImagePath,
                     director: movie.Director.join(","),
@@ -48,7 +48,7 @@ if (!user) {
     or
   <SignupView />
   </>
-  );
+  )
 }
 
 //Render movies data in component

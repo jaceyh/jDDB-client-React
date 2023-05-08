@@ -5,7 +5,7 @@ export const SignupView = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-    const [date, setDob] = useState("");
+    const [birthday, setBirthday] = useState("");
     const handleSubmit = (event) => {
     event.preventDefault();
     
@@ -16,7 +16,7 @@ export const SignupView = () => {
         Birthday: birthday
     };
 
-    fetch("http://jmdb-app.herokuapp.com/", {
+    fetch("https://jmdb-app.herokuapp.com/users", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -37,7 +37,6 @@ return (
         <label>
             Username:
             <input
-                id="username"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -48,7 +47,6 @@ return (
         <label>
             Password:
             <input
-                id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -72,8 +70,8 @@ return (
             <input
                 id="dob"
                 type="date"
-                value={date}
-                onChange={(e) => setDob(e.target.value)}
+                value={birthday}
+                onChange={(e) => setBirthday(e.target.value)}
                 required
             />
         </label>
