@@ -2935,18 +2935,17 @@ var _indexScss = require("./index.scss");
 //Import componenets i.e. Container
 var _container = require("react-bootstrap/Container");
 var _containerDefault = parcelHelpers.interopDefault(_container);
-console.log("bootstrap added");
 //Main component (will eventually use all the others)
 const JMDBApplication = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 18,
+            lineNumber: 17,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/index.jsx",
-        lineNumber: 17,
+        lineNumber: 16,
         columnNumber: 9
     }, undefined);
 };
@@ -2957,7 +2956,7 @@ const root = (0, _client.createRoot)(container);
 //Tells React to render your app in the root DOM element
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(JMDBApplication, {}, void 0, false, {
     fileName: "src/index.jsx",
-    lineNumber: 28,
+    lineNumber: 27,
     columnNumber: 13
 }, undefined));
 var _c;
