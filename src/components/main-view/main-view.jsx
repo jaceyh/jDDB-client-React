@@ -41,16 +41,7 @@ useEffect(() => {
     }, [token]);
 
 if (!user) {
-    <>
-    <LoginView 
-      onLoggedIn={(user, token) => {
-      setUser(user); 
-      setToken(token);
-    }} />
-    or
-  <SignupView />
-  </>
-  )
+    return(
         <Row>
             <Col md={3}>
             <LoginView
