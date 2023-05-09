@@ -4,6 +4,8 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Modal from "react-bootstrap/Modal";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -39,7 +41,6 @@ useEffect(() => {
     }, [token]);
 
 if (!user) {
-  return (
     <>
     <LoginView 
       onLoggedIn={(user, token) => {
@@ -50,20 +51,49 @@ if (!user) {
   <SignupView />
   </>
   )
+        <Row>
+            <Col md={3}>
+            <LoginView
+                onLoggedIn={(user, token) => {
+                setUser(user);
+                setToken(token);
+                }}
+                />
+            </Col>
+            <Col md={3}>
+            or
+            </Col>
+            <Col md={3}>
+            <SignupView />
+            </Col>
+        </Row>
+    )
 }
 
 //Render movies data in component
     return (
-      <div>
+    <div>
+      <Row>
+        <Col md={1}>
         <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
+        </Col>
+      </Row>
+      <Row>
         {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie); }} />
+            <Col className="mb-5" key={movie.id} md={4}>
+            <MovieCard key={movie.id} movie={movie} onMovieClick={(newSelectedMovie) => {
+            setSelectedMovie(newSelectedMovie); }} 
+            />
+            </Col>
         ))}
-        {selectedMovie && (
-          <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+        { selectedMovie && (
+                <MovieView 
+                    movie={selectedMovie} 
+                    onBackClick={() => setSelectedMovie(null)} 
+                />
         )}
         {movies.length === 0 && <div>The list is empty!</div>}
-      </div>
-    );
-  };
+     </Row>
+    </div>
+   );
+ };
