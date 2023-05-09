@@ -6,12 +6,15 @@ import "./index.scss";
 
 //Import componenets i.e. Container
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 //Main component (will eventually use all the others)
 const JMDBApplication = () => {
     return (
         <Container>
-            <MainView />
+            <Row>
+                <MainView />
+            </Row>
         </Container>
     );
 };
