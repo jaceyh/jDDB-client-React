@@ -2928,8 +2928,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _client = require("react-dom/client");
 var _mainView = require("./components/main-view/main-view");
-//Import react-bootstrap
-var _bootstrapMinCss = require("bootstrap/dist/css/bootstrap.min.css");
 //Import statement to indicate that you need to bundle ./index.scss
 var _indexScss = require("./index.scss");
 //Import componenets i.e. Container
@@ -2940,12 +2938,12 @@ const JMDBApplication = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 17,
+            lineNumber: 14,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/index.jsx",
-        lineNumber: 16,
+        lineNumber: 13,
         columnNumber: 9
     }, undefined);
 };
@@ -2956,7 +2954,7 @@ const root = (0, _client.createRoot)(container);
 //Tells React to render your app in the root DOM element
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(JMDBApplication, {}, void 0, false, {
     fileName: "src/index.jsx",
-    lineNumber: 27,
+    lineNumber: 24,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -2967,7 +2965,7 @@ $RefreshReg$(_c, "JMDBApplication");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","bootstrap/dist/css/bootstrap.min.css":"i5LP7","./index.scss":"lJZlQ","react-bootstrap/Container":"hEdsw","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","react-bootstrap/Container":"hEdsw","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("916f26203e62012b");
 
@@ -27281,7 +27279,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s","react-bootstrap/Row":"cMC39"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","react-bootstrap/Row":"cMC39","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28523,7 +28521,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80"}],"aPzUt":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s"}],"aPzUt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -30408,7 +30406,7 @@ $RefreshReg$(_c, "SignupView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt"}],"cMC39":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s"}],"cMC39":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -30441,7 +30439,7 @@ as: Component = "div" , ...props }, ref)=>{
 Row.displayName = "Row";
 exports.default = Row;
 
-},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB"}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}],"hEdsw":[function(require,module,exports) {
+},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB"}],"lJZlQ":[function() {},{}],"hEdsw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");

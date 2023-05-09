@@ -1,6 +1,4 @@
-$color: steelblue;
+$primary: steelblue;
+$body-bg: PapayaWhip;
 
-.jmdb-flix{
-  color: $color;
-  size: 18;
-}
+@import '~bootstrap/scss/bootstrap';
