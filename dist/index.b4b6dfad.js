@@ -27194,7 +27194,7 @@ const MainView = ()=>{
         console.log("useEffect triggered");
         console.log("Token: ", token);
         if (!token) return;
-        fetch("https://jmdb-app.herokuapp.com/movies", {
+        fetch("https://jmdb.herokuapp.com/movies", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -27205,10 +27205,10 @@ const MainView = ()=>{
                 return {
                     id: movie._id,
                     name: movie.Name,
-                    image: movie.ImagePath,
                     director: movie.Director.join(","),
-                    tags: movie.Tags.join(","),
-                    description: movie.Description
+                    image: movie.ImagePath,
+                    description: movie.Description,
+                    tags: movie.Tags.join(",")
                 };
             });
             console.log("moviesFromApi data: ", moviesFromApi);
