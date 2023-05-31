@@ -19,7 +19,7 @@ export const SignupView = () => {
         Birthday: birthday
     };
 
-    fetch("https://jmdb-app.herokuapp.com/users", {
+    fetch("https://jmdb.herokuapp.com/users", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -63,7 +63,8 @@ return (
             <Form.Label>Email:</Form.Label>
             <Form.Control
                 type="email"
-                value={email}                    placeholder="user@example.com"
+                value={email}                    
+                placeholder="user@example.com"
                 onChange={(e) => setEmail(e.target.value)}
                 required
             />
