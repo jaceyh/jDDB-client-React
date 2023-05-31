@@ -17,26 +17,31 @@ export const MainView = () => {
 
 
 useEffect(() => {
+    console.log("useEffect triggered");
+    console.log("Token: ", token);
     if (!token) return;
-    fetch("https://jmdb-app.herokuapp.com/movies", {
+    fetch("https://jmdb.herokuapp.com/movies", {
         headers: { Authorization: `Bearer ${token}` },
     })
         .then((response) => response.json())
         .then((data) => {
+            console.log("Data from API: ", data);
             const moviesFromApi = data.map((movie) => {
+                console.log("Movie: ", movie)
                 return {
                     id: movie._id,
                     name: movie.Name,
-                    image: movie.ImagePath,
                     director: movie.Director.join(","),
-                    tags: movie.Tags.join(","),
-                    description: movie.Description
+                    image: movie.ImagePath,
+                    description: movie.Description,
+                    tags: movie.Tags.join(",")
                 }
             });
+            console.log("moviesFromApi data: ", moviesFromApi)
         setMovies(moviesFromApi);
         })
         .catch((error) => {
-            console.log("Error fetching movies:", error);
+            console.log(error);
         });
     }, [token]);
 
