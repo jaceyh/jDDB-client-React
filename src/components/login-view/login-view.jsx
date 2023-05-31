@@ -16,7 +16,7 @@ export const LoginView = ({ onLoggedIn }) => {
         Password: password
     };
 
-    fetch("https://jmdb-app.herokuapp.com/login", {
+    fetch("https://jmdb.herokuapp.com/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
