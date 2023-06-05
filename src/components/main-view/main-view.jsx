@@ -27,7 +27,7 @@ useEffect(() => {
         .then((data) => {
             console.log("Data from API: ", data);
             const moviesFromApi = data.map((movie) => {
-                console.log("Movie: ", movie)
+                console.log("Movies: ", movie)
                 return {
                     id: movie._id,
                     name: movie.Name,
