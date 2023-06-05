@@ -27201,7 +27201,7 @@ const MainView = ()=>{
         }).then((response)=>response.json()).then((data)=>{
             console.log("Data from API: ", data);
             const moviesFromApi = data.map((movie)=>{
-                console.log("Movie: ", movie);
+                console.log("Movies: ", movie);
                 return {
                     id: movie._id,
                     name: movie.Name,
@@ -27427,11 +27427,11 @@ _c = MovieCard;
 // Here is where we define all the props constraints for the MovieCard
 MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
-        Id: (0, _propTypesDefault.default).string,
+        _id: (0, _propTypesDefault.default).string,
         Name: (0, _propTypesDefault.default).string.isRequired,
-        Director: (0, _propTypesDefault.default).array,
+        Director: (0, _propTypesDefault.default).string,
         ImagePath: (0, _propTypesDefault.default).string,
-        Tags: (0, _propTypesDefault.default).array,
+        Tags: (0, _propTypesDefault.default).string,
         Description: (0, _propTypesDefault.default).string.isRequired
     }),
     onMovieClick: (0, _propTypesDefault.default).func.isRequired
