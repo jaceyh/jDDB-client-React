@@ -27431,8 +27431,8 @@ MovieCard.propTypes = {
         Name: (0, _propTypesDefault.default).string.isRequired,
         Director: (0, _propTypesDefault.default).string,
         ImagePath: (0, _propTypesDefault.default).string,
-        Tags: (0, _propTypesDefault.default).string,
-        Description: (0, _propTypesDefault.default).string.isRequired
+        Description: (0, _propTypesDefault.default).string.isRequired,
+        Tags: (0, _propTypesDefault.default).string
     }),
     onMovieClick: (0, _propTypesDefault.default).func.isRequired
 };

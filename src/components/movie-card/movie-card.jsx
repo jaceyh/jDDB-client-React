@@ -23,8 +23,8 @@ MovieCard.propTypes = {
     Name: PropTypes.string.isRequired,
     Director: PropTypes.string,
     ImagePath: PropTypes.string,
-    Tags: PropTypes.string,
-    Description: PropTypes.string.isRequired
+    Description: PropTypes.string.isRequired,
+    Tags: PropTypes.string
   }),
   onMovieClick: PropTypes.func.isRequired
 };
