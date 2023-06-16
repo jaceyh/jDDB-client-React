@@ -31,10 +31,10 @@ useEffect(() => {
                 return {
                     id: movie._id,
                     name: movie.Name,
-                    director: movie.Director.join(","),
+                    director: movie.Director.map((director) => director.Name).join(', '),
                     image: movie.ImagePath,
                     description: movie.Description,
-                    tags: movie.Tags.join(",")
+                    tags: movie.Tags.map((tag) => tag.Name).join(', ')
                 }
             });
             console.log("moviesFromApi data: ", moviesFromApi)
