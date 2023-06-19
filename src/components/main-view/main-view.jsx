@@ -5,7 +5,8 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Modal from "react-bootstrap/Modal";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { NavigationBar } from "../navigation-bar/navigation-bar";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -45,9 +46,94 @@ useEffect(() => {
         });
     }, [token]);
 
-if (!user) {
+
     return(
-        <Row>
+        <BrowserRouter>
+            <Row className="justify-content-md-center">
+                <Col md={12}>
+                    <NavigationBar
+                    user={user}
+                    onLoggedOut={() =>{
+                        setUser(null)
+                        setToken(null);
+                        localStorage.clear();
+                        window.location.reload();
+                    }}
+                    />
+                </Col>
+                <Routes>
+                    <Route
+                        path="/signup"
+                        element={
+                            <>
+                                {user ? (
+                                    <Navigate to="/" />
+                                ) : (
+                                    <Col md={5}>
+                                        <SignupView />
+                                    </Col>
+                                )}
+                            </>
+
+                        }
+                    />
+                    <Route
+                        path="/login"
+                        element={
+                            <>
+                                {user ? (
+                                    <Navigate to="/" />
+                                ) : (
+                                    <Col md={5}>
+                                        <LoginView onLoggedIn={(user) => setUser(user)} />
+                                    </Col>
+                                )}
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/movies/:movieId"
+                        element={
+                            <>
+                                {!user ? (
+                                    <Navigate to="/login" replace />
+                                ) : movies.length === 0 ? (
+                                    <Col>"The list is empty!"</Col>
+                                ) : (
+                                    <Col md={5}>
+                                        <MovieView movies={movies} />
+                                    </Col>
+                                )}
+                            </>
+                        }
+                    />
+                    <Route
+                        path="/"
+                        element={
+                            <>
+                                {!user ? (
+                                    <Navigate to="/login" replace />
+                                ) : movies.length === 0 ? (
+                                    <Col>"The list is empty!"</Col>
+                                ) : (
+                                    <>
+                                        {movies.map((movie) => (
+                                            <Col className="mb-5" key={movie.id} md={4}>
+                                                <MovieCard movie={movie} />
+                                            </Col>
+                                        ))}
+                                    </>
+                                )}
+                            </>
+                        }
+                    />
+                </Routes>
+            </Row>
+        </BrowserRouter>
+    );
+};
+
+     /*   leaving this in case I need for setting token          
             <Col md={3}>
             <LoginView
                 onLoggedIn={(user, token) => {
@@ -65,7 +151,9 @@ if (!user) {
         </Row>
     )
 }
+*/
 
+/*
 //Render movies data in component
     return (
     <div>
@@ -93,3 +181,4 @@ if (!user) {
     </div>
    );
  };
+ */
