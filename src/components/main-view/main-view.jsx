@@ -108,6 +108,20 @@ useEffect(() => {
                         }
                     />
                     <Route
+                        path="/users"
+                        element={
+                            <>
+                                {user ? (
+                                    <Navigate to="/users/:Username" />
+                                ) : (
+                                    <Col md={5}>
+                                        <LoginView onLoggedIn={(user) => setUser(user)} />
+                                    </Col>
+                                )}
+                            </>
+                        }
+                    />
+                    <Route
                         path="/"
                         element={
                             <>
