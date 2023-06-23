@@ -4,6 +4,7 @@ import Image from 'react-bootstrap/Image';
 import { useParams } from "react-router";
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 
 import "./movie-view.scss";
 import { FavoriteMovies } from '../profile-view/favorite-movies';
@@ -14,17 +15,17 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 
     const movie = movies.find((m) => m.id === movieId);
 
-    const favoriteMovies = movies.filter(movie => user.favoriteMovies.includes(movie._id));
+    const FavMovies = movies.filter(movie => user.FavMovies.includes(movie._id));
 
-    const [isFavorite, setIsFavorite] = useState(user.favoriteMovies.includes(movie.id));
+    const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie.id));
 
     useEffect(() => {
-        setIsFavorite(user.favoriteMovies.includes(movieId));
+        setIsFavorite(user.FavMovies.includes(movieId));
         window.scrollTo(0, 0);
     }, [movieId])
 
     const addFavorite = () => {
-        fetch(`https://jmdb.herokuapp.com/users/${user.username}/movies/${movieId}`, {
+        fetch(`https://jmdb.herokuapp.com/users/${user.Username}/movies/${movieId}`, {
             method: "POST",
             headers: { Authorization: `Bearer ${token}` }
         })
@@ -49,7 +50,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
     }
 
     const removeFavorite = () => {
-        fetch(`https://jmdb.herokuapp.com/users/${user.username}/movies/${movieId}`, {
+        fetch(`https://jmdb.herokuapp.com/users/${user.Username}/movies/${movieId}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` }
         })
@@ -110,51 +111,3 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
       </div>
     );
 };
-
-/*
-export const MovieView = ({ movie, onBackClick }) => {
-    return (
-      <div className="modal show" style={{display: 'block', position: 'initial'}}>
-        <Modal show size="md">
-            <Modal.Header>
-                <Modal.Title>{movie.name}</Modal.Title>
-                <button 
-                onClick={onBackClick}
-                className="back-button"
-                style={{cursor: "pointer"}}
-                >
-                Back
-                </button>
-            </Modal.Header>
-            <Modal.Body>
-                <div>
-                    <Image src={movie.image} fluid="true" />
-                </div>
-                <div>
-                    <span> Director: </span>
-                    <span> {movie.director} </span>
-                </div>
-                <div>
-                    <span> Tags: </span>
-                    <span> {movie.tags} </span>
-                </div>
-                <div>
-                    <span> Description: </span>
-                    <span> {movie.description} </span>
-                </div>
-            </Modal.Body>
-
-            <Modal.Footer>
-                <button 
-                onClick={onBackClick}
-                className="back-button"
-                style={{cursor: "pointer"}}
-                >
-                Back
-                </button>
-        </Modal.Footer>
-        </Modal>
-      </div>
-    );
-  };
-  */

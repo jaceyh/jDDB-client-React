@@ -76,6 +76,7 @@ export const SettingsView = ({ user, token, updateUser, onLoggedOut}) => {
                     minLength="4"
                     maxLength="24"
                     required
+                    placeholder="Your username must be a minimum of 4 characters."
                 />
             </Form.Group>
 
@@ -87,6 +88,7 @@ export const SettingsView = ({ user, token, updateUser, onLoggedOut}) => {
                     onChange={(e) => setPassword(e.target.value)}
                     minLength="8"
                     required
+                    placeholder="Your password must be a minimum of 8 characters."
                 />
         </Form.Group>
 
@@ -95,9 +97,9 @@ export const SettingsView = ({ user, token, updateUser, onLoggedOut}) => {
                 <Form.Control
                     type="email"
                     value={email}                  
-                    placeholder="user@example.com"
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    placeholder="user@example.com"
                 />
         </Form.Group>
 
@@ -106,9 +108,9 @@ export const SettingsView = ({ user, token, updateUser, onLoggedOut}) => {
                 <Form.Control
                     type="date"
                     value={birthday}
-                    defaultValue="mm/dd/yyyy"
                     onChange={(e) => setBirthday(e.target.value)}
                     required
+                    placeholder="mm/dd/yyyy"
                 />
         </Form.Group>
         <Button type="submit">Submit</Button>

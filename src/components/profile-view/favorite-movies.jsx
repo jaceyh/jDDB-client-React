@@ -6,11 +6,11 @@ import { MovieCard } from "../movie-card/movie-card";
 
 
 function FavoriteMovies( movies, user ) {
-    const favoriteMovies = movies.filter(movie => user.favoriteMovies.includes(movie._id));
+    const FavMovies = movies.filter(movie => user.FavMovies.includes(movie._id));
 
     return (
-        <div>
-            <h1>Favorite Movies</h1>
+        <Row>
+            <h2>Favorite Movies</h2>
             {favoriteMovieList.map((movie) => {
                 return (
                     <Row>
@@ -20,7 +20,7 @@ function FavoriteMovies( movies, user ) {
                     </Row>
                 )
             })}
-        </div>
+        </Row>
     )
 }
 

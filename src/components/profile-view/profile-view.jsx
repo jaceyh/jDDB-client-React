@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -19,15 +20,15 @@ export const ProfileView = ({ user, token }) => {
 useEffect(() => {
     const getUser = () => {
         if (!token || !user) return;
-        fetch(`https://jmdb.herokuapp.com/users/${user.username}`, {
+        fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
             headers: { Authorization: `Bearer ${token}` },
         })
         .then(response => response.json())
         .then(data => {
             const userInfo = data.map((user) => ({
-                username: user.username,
-                email: user.email,
-                birthday: user.birthdate
+                username: user.Username,
+                email: user.Email,
+                birthday: user.Birthdate
               }));
         })
         .catch((error) => {
@@ -41,49 +42,41 @@ return (
     <Container>
         <Row>
             <Col>            
-                <h1>Profile</h1>
+                <h1>{user.Username}'s Profile</h1>
             </Col>
         </Row>
         <Row>
             <Col>
-            User:
+                <Card>
+                    <Card.Body>
+                        <h2>User Information</h2>
+                        <span>User: {user.Username}</span>
+                        <span>Email: {user.Email}</span>
+                        <span>Birthdy: {user.Birthdate}</span>
+            </Card.Body>
+            </Card>
             </Col>
             <Col>
-            {user.Username}
+                <Card>
+                    <Card.Body>
+                        <h2>Update Something?</h2>
+                        <p><SettingsView user={user} token={token} /></p>
+                    </Card.Body>
+                </Card>
             </Col>
         </Row>
         <Row>
             <Col>
-            Email:
-            </Col>
-            <Col>
-            {user.Email}
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-            Birthday:
-            </Col>
-            <Col>
-            {user.Birthdate}
-            </Col>
-        </Row>
-        <Row>
-            <Col>          
-            Update something?
-            </Col>
-            <Col>
-            <SettingsView user={user} token={token} />
+                <Card>
+                    <Card.Body>
+                        <h2>Favorite Movies</h2>
+                    </Card.Body>
+                </Card>
             </Col>
         </Row>
         <Row>
             <Col>
-            Favorite Movies
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-            <FavoriteMovies />
+            <FavoriteMovies user={user} token={token} isFavorite={isFavorite} />
             </Col>
         </Row>
     </Container>
