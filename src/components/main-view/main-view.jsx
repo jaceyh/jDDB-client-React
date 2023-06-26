@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { ProfileView } from "../profile-view/profile-view";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -15,6 +16,7 @@ export const MainView = () => {
     const [token, setToken] = useState(storedToken? storedToken : null);
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
+    const [isFavorite, setIsFavorite] = useState([]);
 
 
 useEffect(() => {
@@ -122,6 +124,12 @@ useEffect(() => {
                         }
                     />
                     <Route
+                        path="/users/:username"
+                        element={
+                            <ProfileView user={user} token={token} isFavorite={isFavorite}/>
+                        }
+                    />
+                    <Route
                         path="/"
                         element={
                             <>
@@ -146,53 +154,3 @@ useEffect(() => {
         </BrowserRouter>
     );
 };
-
-     /*   leaving this in case I need for setting token          
-            <Col md={3}>
-            <LoginView
-                onLoggedIn={(user, token) => {
-                setUser(user);
-                setToken(token);
-                }}
-                />
-            </Col>
-            <Col md={3}>
-            or
-            </Col>
-            <Col md={3}>
-            <SignupView />
-            </Col>
-        </Row>
-    )
-}
-*/
-
-/*
-//Render movies data in component
-    return (
-    <div>
-      <Row>
-        <Col md={1}>
-        <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
-        </Col>
-      </Row>
-      <Row>
-        {movies.map((movie) => (
-            <Col className="mb-5" key={movie.id} md={4}>
-            <MovieCard key={movie.id} movie={movie} onMovieClick={(newSelectedMovie) => {
-            setSelectedMovie(newSelectedMovie); }} 
-            />
-            </Col>
-        ))}
-        { selectedMovie && (
-                <MovieView 
-                    movie={selectedMovie} 
-                    onBackClick={() => setSelectedMovie(null)} 
-                />
-        )}
-        {movies.length === 0 && <div>The list is empty!</div>}
-     </Row>
-    </div>
-   );
- };
- */

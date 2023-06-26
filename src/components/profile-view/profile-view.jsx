@@ -10,12 +10,12 @@ import { useState, useEffect } from "react";
 import { SettingsView } from "./user-settings";
 import { FavoriteMovies } from "./favorite-movies";
 
-
-export const ProfileView = ({ user, token }) => {
+export const ProfileView = ({ user, token, FavMovies }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ birthday, setBirthday ] = useState("");
+    const [isFavorite, setIsFavorite] = useState("");
 
 useEffect(() => {
     const getUser = () => {
@@ -28,7 +28,8 @@ useEffect(() => {
             const userInfo = data.map((user) => ({
                 username: user.Username,
                 email: user.Email,
-                birthday: user.Birthdate
+                birthday: user.Birthdate,
+                favMovies: user.FavMovies
               }));
         })
         .catch((error) => {
