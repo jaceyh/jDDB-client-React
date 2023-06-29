@@ -27475,11 +27475,11 @@ _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
         _id: (0, _propTypesDefault.default).string,
-        Name: (0, _propTypesDefault.default).string.isRequired,
-        Director: (0, _propTypesDefault.default).string,
-        ImagePath: (0, _propTypesDefault.default).string,
-        Description: (0, _propTypesDefault.default).string.isRequired,
-        Tags: (0, _propTypesDefault.default).string
+        name: (0, _propTypesDefault.default).string.isRequired,
+        director: (0, _propTypesDefault.default).string,
+        image: (0, _propTypesDefault.default).string,
+        description: (0, _propTypesDefault.default).string.isRequired,
+        tags: (0, _propTypesDefault.default).string
     }).isRequired
 };
 var _c;
@@ -47630,7 +47630,7 @@ const ProfileView = ({ user , token , FavMovies  })=>{
         columnNumber: 5
     }, undefined);
 };
-_s(ProfileView, "gAT4nWgh2/jcPn63EBGDnfwMALI=");
+_s(ProfileView, "NGMrjUDfOP51xocZ2R1fPMEJuq4=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");

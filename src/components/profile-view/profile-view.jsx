@@ -15,7 +15,7 @@ export const ProfileView = ({ user, token, FavMovies }) => {
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ birthday, setBirthday ] = useState("");
-    const [isFavorite, setIsFavorite] = useState("");
+    const [ isFavorite, setIsFavorite ] = useState("");
 
 useEffect(() => {
     const getUser = () => {
