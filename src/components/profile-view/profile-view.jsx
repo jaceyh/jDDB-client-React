@@ -16,6 +16,7 @@ export const ProfileView = ({ user, token, FavMovies }) => {
     const [ email, setEmail ] = useState("");
     const [ birthday, setBirthday ] = useState("");
     const [ isFavorite, setIsFavorite ] = useState("");
+    const movieId = useState("");
 
 useEffect(() => {
     const getUser = () => {
@@ -77,7 +78,7 @@ return (
         </Row>
         <Row>
             <Col>
-            <FavoriteMovies user={user} token={token} isFavorite={isFavorite} />
+            <FavoriteMovies user={user} token={token} movieId={movieId} isFavorite={isFavorite} />
             </Col>
         </Row>
     </Container>

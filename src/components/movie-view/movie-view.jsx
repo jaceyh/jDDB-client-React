@@ -11,8 +11,10 @@ import { FavoriteMovies } from '../profile-view/favorite-movies';
 import { useBootstrapBreakpoints } from 'react-bootstrap/esm/ThemeProvider';
 
 export const MovieView = ({ movies, user, token, updateUser }) => {
+    //gets movie id from database and uses it as the parameters in the url
     const { movieId } = useParams();
 
+    //searches through the list of database if movies and grabs the id to be displayed in the url
     const movie = movies.find((m) => m.id === movieId);
 
     const FavMovies = movies.filter(movie => user.FavMovies.includes(movie._id));
@@ -85,15 +87,15 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
                     <Image src={movie.image} fluid="true" />
                 </div>
                 <div>
-                    <span> Director: </span>
+                    <span class="fw-bold">Director:</span>
                     <span> {movie.director} </span>
                 </div>
                 <div>
-                    <span> Tags: </span>
+                    <span class="fw-bold"> Tags: </span>
                     <span> {movie.tags} </span>
                 </div>
                 <div>
-                    <span> Description: </span>
+                    <span class="fw-bold"> Description: </span>
                     <span> {movie.description} </span>
                 </div>
             </Modal.Body>

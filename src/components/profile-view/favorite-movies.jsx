@@ -10,7 +10,7 @@ import { MovieCard } from "../movie-card/movie-card";
 export const FavoriteMovies = ({ movies, user }) => { 
     const { movieId } = useParams();
 
-    const movie = movies.find((m) => m.id === movieId);
+    const movie = movies.find((movie) => movie._id === movieId);
 
     const FavMovies = movies.filter(movie => user.FavMovies.includes(movie._id));
 
