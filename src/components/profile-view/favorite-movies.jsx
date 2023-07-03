@@ -8,13 +8,14 @@ import { Link } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
 
 export const FavoriteMovies = ({ movies, user, token }) => { 
+    console.log(movies);
     const { movieId } = useParams();
 
     const movie = movies.find((movie) => movie._id === movieId);
 
     const FavMovies = movies.filter(movie => user.FavMovies.includes(movie._id));
 
-    const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie.id));
+    const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));
 
     useEffect(() => {
         setIsFavorite(user.FavMovies.includes(movieId));

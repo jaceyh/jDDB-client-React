@@ -47,7 +47,7 @@ export const MovieView = ({ movies, user, updateUser }) => {
             if (user) {
                 alert("Successfully added to favorites");
                 setIsFavorite(true);
-                updateUser(user);
+                //updateUser(user);
             }
         })
         .catch(e => {

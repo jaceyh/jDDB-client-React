@@ -27291,8 +27291,7 @@ const MainView = ()=>{
                                     md: 5,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
                                         movies: movies,
-                                        user: user,
-                                        updateUser: updateUser
+                                        user: user
                                     }, void 0, false, void 0, void 0)
                                 }, void 0, false, void 0, void 0)
                             }, void 0, false)
@@ -27323,6 +27322,7 @@ const MainView = ()=>{
                             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
                                 user: user,
                                 token: token,
+                                movies: movies,
                                 isFavorite: isFavorite
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
@@ -35247,7 +35247,7 @@ const MovieView = ({ movies , user , updateUser  })=>{
             if (user) {
                 alert("Successfully added to favorites");
                 setIsFavorite(true);
-                updateUser(user);
+            //updateUser(user);
             }
         }).catch((e)=>{
             alert(e);
@@ -46889,10 +46889,11 @@ var _movieCard = require("../movie-card/movie-card");
 var _s = $RefreshSig$();
 const FavoriteMovies = ({ movies , user , token  })=>{
     _s();
+    console.log(movies);
     const { movieId  } = (0, _reactRouterDom.useParams)();
     const movie = movies.find((movie)=>movie._id === movieId);
     const FavMovies = movies.filter((movie)=>user.FavMovies.includes(movie._id));
-    const [isFavorite, setIsFavorite] = (0, _react.useState)(user.FavMovies.includes(movie.id));
+    const [isFavorite, setIsFavorite] = (0, _react.useState)(user.FavMovies.includes(movie._id));
     (0, _react.useEffect)(()=>{
         setIsFavorite(user.FavMovies.includes(movieId));
         window.scrollTo(0, 0);
@@ -46905,7 +46906,7 @@ const FavoriteMovies = ({ movies , user , token  })=>{
                 children: "Favorite Movies"
             }, void 0, false, {
                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                lineNumber: 27,
+                lineNumber: 28,
                 columnNumber: 13
             }, undefined),
             FavMovies.map((movie)=>{
@@ -46920,28 +46921,28 @@ const FavoriteMovies = ({ movies , user , token  })=>{
                             movie: movie
                         }, void 0, false, {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                            lineNumber: 32,
+                            lineNumber: 33,
                             columnNumber: 29
                         }, undefined)
                     }, movie.id, false, {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 31,
+                        lineNumber: 32,
                         columnNumber: 25
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 30,
+                    lineNumber: 31,
                     columnNumber: 21
                 }, undefined);
             })
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/favorite-movies.jsx",
-        lineNumber: 26,
+        lineNumber: 27,
         columnNumber: 9
     }, undefined);
 };
-_s(FavoriteMovies, "5mhMx7IM3BiYVJ61xHKurcq5gqM=", false, function() {
+_s(FavoriteMovies, "pEBn1jPhOmmXhhBJNghSwKY/4Rk=", false, function() {
     return [
         (0, _reactRouterDom.useParams)
     ];
@@ -47419,7 +47420,7 @@ var _reactRouterDom = require("react-router-dom");
 var _userSettings = require("./user-settings");
 var _favoriteMovies = require("./favorite-movies");
 var _s = $RefreshSig$();
-const ProfileView = ({ user , token , FavMovies  })=>{
+const ProfileView = ({ user , token , movies , FavMovies  })=>{
     _s();
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
@@ -47616,6 +47617,7 @@ const ProfileView = ({ user , token , FavMovies  })=>{
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _favoriteMovies.FavoriteMovies), {
                         user: user,
                         token: token,
+                        movies: movies,
                         movieId: movieId,
                         isFavorite: isFavorite
                     }, void 0, false, {

@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import { SettingsView } from "./user-settings";
 import { FavoriteMovies } from "./favorite-movies";
 
-export const ProfileView = ({ user, token, FavMovies }) => {
+export const ProfileView = ({ user, token, movies, FavMovies }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
@@ -78,7 +78,7 @@ return (
         </Row>
         <Row>
             <Col>
-            <FavoriteMovies user={user} token={token} movieId={movieId} isFavorite={isFavorite} />
+            <FavoriteMovies user={user} token={token} movies={movies} movieId={movieId} isFavorite={isFavorite} />
             </Col>
         </Row>
     </Container>

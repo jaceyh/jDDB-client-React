@@ -103,7 +103,7 @@ useEffect(() => {
                                     <Col>"The list is empty!"</Col>
                                 ) : (
                                     <Col md={5}>
-                                        <MovieView movies={movies} user={user} updateUser={updateUser}/>
+                                        <MovieView movies={movies} user={user}/>
                                     </Col>
                                 )}
                             </>
@@ -126,7 +126,7 @@ useEffect(() => {
                     <Route
                         path="/users/:username"
                         element={
-                            <ProfileView user={user} token={token} isFavorite={isFavorite}/>
+                            <ProfileView user={user} token={token} movies={movies} isFavorite={isFavorite}/>
                         }
                     />
                     <Route
