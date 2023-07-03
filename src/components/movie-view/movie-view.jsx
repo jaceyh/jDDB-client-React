@@ -10,7 +10,11 @@ import "./movie-view.scss";
 import { FavoriteMovies } from '../profile-view/favorite-movies';
 import { useBootstrapBreakpoints } from 'react-bootstrap/esm/ThemeProvider';
 
-export const MovieView = ({ movies, user, token, updateUser }) => {
+export const MovieView = ({ movies, user, updateUser }) => {
+
+    const storedToken = localStorage.getItem("token");
+    const [token, setToken] = useState(storedToken? storedToken : null);
+
     //gets movie id from database and uses it as the parameters in the url
     const { movieId } = useParams();
 

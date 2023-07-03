@@ -103,7 +103,7 @@ useEffect(() => {
                                     <Col>"The list is empty!"</Col>
                                 ) : (
                                     <Col md={5}>
-                                        <MovieView movies={movies} user={user}/>
+                                        <MovieView movies={movies} user={user} updateUser={updateUser}/>
                                     </Col>
                                 )}
                             </>

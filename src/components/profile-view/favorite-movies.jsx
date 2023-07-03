@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 import { MovieCard } from "../movie-card/movie-card";
 
-export const FavoriteMovies = ({ movies, user }) => { 
+export const FavoriteMovies = ({ movies, user, token }) => { 
     const { movieId } = useParams();
 
     const movie = movies.find((movie) => movie._id === movieId);
