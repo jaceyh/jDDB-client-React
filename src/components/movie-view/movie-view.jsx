@@ -23,7 +23,7 @@ export const MovieView = ({ movies, user, updateUser }) => {
 
     const FavMovies = movies.filter(movie => user.FavMovies.includes(movie._id));
 
-    const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie.id));
+    const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));
 
     useEffect(() => {
         setIsFavorite(user.FavMovies.includes(movieId));
@@ -72,7 +72,7 @@ export const MovieView = ({ movies, user, updateUser }) => {
             if (user) {
                 alert("Successfully deleted from favorites");
                 setIsFavorite(false);
-                updateUser(user);
+                //updateUser(user);
             }
         })
         .catch(e => {

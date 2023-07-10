@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 
 import { SettingsView } from "./user-settings";
 import { FavoriteMovies } from "./favorite-movies";
+import { MovieCard } from "../movie-card/movie-card";
 
 export const ProfileView = ({ user, token, movies, FavMovies }) => {
     const [ username, setUsername ] = useState("");

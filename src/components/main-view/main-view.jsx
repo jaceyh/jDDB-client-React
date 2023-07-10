@@ -10,11 +10,16 @@ import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
 
 export const MainView = () => {
+    //keeps stored user credentials in local storage
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
+
     const [user, setUser] = useState(storedUser? storedUser : null);
     const [token, setToken] = useState(storedToken? storedToken : null);
+
+    //state puts movies from API into an array
     const [movies, setMovies] = useState([]);
+
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [isFavorite, setIsFavorite] = useState([]);
 
@@ -55,6 +60,10 @@ useEffect(() => {
                 <Col md={12}>
                     <NavigationBar
                     user={user}
+                    token={token}
+                    setUser={setUser}
+                    setToken={setToken} 
+                    movies={movies}
                     onLoggedOut={() =>{
                         setUser(null)
                         setToken(null);
@@ -126,7 +135,9 @@ useEffect(() => {
                     <Route
                         path="/users/:username"
                         element={
-                            <ProfileView user={user} token={token} movies={movies} isFavorite={isFavorite}/>
+                            <>
+                                <ProfileView user={user} token={token} movies={movies} isFavorite={isFavorite}/>
+                            </>
                         }
                     />
                     <Route
