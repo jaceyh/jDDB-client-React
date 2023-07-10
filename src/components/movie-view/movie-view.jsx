@@ -19,7 +19,7 @@ export const MovieView = ({ movies, user, updateUser }) => {
     const { movieId } = useParams();
 
     //searches through the list of database if movies and grabs the id to be displayed in the url
-    const movie = movies.find((m) => m.id === movieId);
+    const movie = movies.find((movie) => movie._id === movieId);
 
     const FavMovies = movies.filter(movie => user.FavMovies.includes(movie._id));
 

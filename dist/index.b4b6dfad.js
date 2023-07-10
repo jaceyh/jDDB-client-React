@@ -35230,7 +35230,7 @@ const MovieView = ({ movies , user , updateUser  })=>{
     //gets movie id from database and uses it as the parameters in the url
     const { movieId  } = (0, _reactRouter.useParams)();
     //searches through the list of database if movies and grabs the id to be displayed in the url
-    const movie = movies.find((m)=>m.id === movieId);
+    const movie = movies.find((movie)=>movie._id === movieId);
     const FavMovies = movies.filter((movie)=>user.FavMovies.includes(movie._id));
     const [isFavorite, setIsFavorite] = (0, _react.useState)(user.FavMovies.includes(movie._id));
     (0, _react.useEffect)(()=>{
@@ -46904,7 +46904,6 @@ const FavoriteMovies = ({ movies , user , token  })=>{
     const [isFavorite, setIsFavorite] = (0, _react.useState)(user.FavMovies.includes(movie._id));
     (0, _react.useEffect)(()=>{
         setIsFavorite(user.FavMovies.includes(movieId));
-        window.scrollTo(0, 0);
     }, [
         movieId
     ]);
@@ -46914,7 +46913,7 @@ const FavoriteMovies = ({ movies , user , token  })=>{
                 children: "Favorite Movies"
             }, void 0, false, {
                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                lineNumber: 28,
+                lineNumber: 27,
                 columnNumber: 13
             }, undefined),
             FavMovies.map((movie)=>{
@@ -46929,24 +46928,24 @@ const FavoriteMovies = ({ movies , user , token  })=>{
                             movie: movie
                         }, void 0, false, {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                            lineNumber: 33,
+                            lineNumber: 32,
                             columnNumber: 29
                         }, undefined)
                     }, movie.id, false, {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 32,
+                        lineNumber: 31,
                         columnNumber: 25
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 31,
+                    lineNumber: 30,
                     columnNumber: 21
                 }, undefined);
             })
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/favorite-movies.jsx",
-        lineNumber: 27,
+        lineNumber: 26,
         columnNumber: 9
     }, undefined);
 };

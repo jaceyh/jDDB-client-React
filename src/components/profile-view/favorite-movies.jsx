@@ -19,7 +19,6 @@ export const FavoriteMovies = ({ movies, user, token }) => {
 
     useEffect(() => {
         setIsFavorite(user.FavMovies.includes(movieId));
-        window.scrollTo(0, 0);
     }, [movieId])
 
 
