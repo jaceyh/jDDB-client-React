@@ -8,27 +8,31 @@ import { Link } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
 
 export const FavoriteMovies = ({ movies, user, token }) => { 
-    console.log(movies);
+    console.log("movies (passed as prop in favorite-movies.jsx): ", movies);
+    console.log("user (passed as prop in favorite-movies.jsx):", user);
+    console.log("token (passed as prop in favorite-movies.jsx) :", token);
     const { movieId } = useParams();
 
-    const movie = movies.find((movie) => movie._id === movieId);
+    //*const movie = movies.find((movie) => movie._id === movieId);*//
 
-    const FavMovies = movies.filter(movie => user.FavMovies.includes(movie._id));
+    const FavMovies = movies.filter((movie) => user.FavMovies.includes(movie._id));
 
-    const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));
+    console.log("FavMovies:", FavMovies);
 
-    useEffect(() => {
+    //*const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));*//
+
+    /* useEffect(() => {
         setIsFavorite(user.FavMovies.includes(movieId));
     }, [movieId])
+    */
 
 
     return (
         <Row>
-            <h2>Favorite Movies</h2>
             {FavMovies.map((movie) => {
                 return (
                     <Row>
-                        <Col className="mb-4" key={movie.id} xl={2} lg={3} md={4} xs={6}>
+                        <Col className="mb-4" key={movie._id} xl={2} lg={3} md={4} xs={6}>
                             <MovieCard movie={movie} />
                         </Col>
                     </Row>

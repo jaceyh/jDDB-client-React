@@ -21,6 +21,7 @@ export const MainView = () => {
     const [movies, setMovies] = useState([]);
 
     const [selectedMovie, setSelectedMovie] = useState(null);
+
     const [isFavorite, setIsFavorite] = useState([]);
 
 
@@ -35,7 +36,6 @@ useEffect(() => {
         .then((data) => {
             console.log("Data from API: ", data);
             const moviesFromApi = data.map((movie) => {
-                console.log("Movies: ", movie)
                 return {
                     id: movie._id,
                     name: movie.Name,
@@ -96,7 +96,12 @@ useEffect(() => {
                                     <Navigate to="/" />
                                 ) : (
                                     <Col md={5}>
-                                        <LoginView onLoggedIn={(user) => setUser(user)} />
+                                        <LoginView 
+                                        onLoggedIn={(user, token) => {
+                                            setUser(user);
+                                            setToken(token);
+                                        }} 
+                                        />
                                     </Col>
                                 )}
                             </>
@@ -112,7 +117,11 @@ useEffect(() => {
                                     <Col>"The list is empty!"</Col>
                                 ) : (
                                     <Col md={5}>
-                                        <MovieView movies={movies} user={user}/>
+                                        <MovieView 
+                                        movies={movies}
+                                        movie={selectedMovie}
+                                        user={user} 
+                                        />
                                     </Col>
                                 )}
                             </>
@@ -126,7 +135,11 @@ useEffect(() => {
                                     <Navigate to="/users/:Username" />
                                 ) : (
                                     <Col md={5}>
-                                        <LoginView onLoggedIn={(user) => setUser(user)} />
+                                        <LoginView onLoggedIn={(user) => {
+                                            setUser(user);
+                                            setToken(token);
+                                        }}
+                                            />
                                     </Col>
                                 )}
                             </>
@@ -136,7 +149,11 @@ useEffect(() => {
                         path="/users/:username"
                         element={
                             <>
-                                <ProfileView user={user} token={token} movies={movies} isFavorite={isFavorite}/>
+                                <ProfileView 
+                                user={user} 
+                                token={token} 
+                                movies={movies} 
+                                isFavorite={isFavorite} />
                             </>
                         }
                     />
@@ -151,8 +168,12 @@ useEffect(() => {
                                 ) : (
                                     <>
                                         {movies.map((movie) => (
-                                            <Col className="mb-5" key={movie.id} md={4}>
-                                                <MovieCard movie={movie} />
+                                            <Col className="mb-5" md={4}>
+                                                <MovieCard 
+                                                movie={movie}
+                                                key={movie._id}
+                                                user={user}
+                                                token={token} />
                                             </Col>
                                         ))}
                                     </>

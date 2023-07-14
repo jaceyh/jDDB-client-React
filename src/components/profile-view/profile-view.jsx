@@ -27,12 +27,15 @@ useEffect(() => {
         })
         .then(response => response.json())
         .then(data => {
-            const userInfo = data.map((user) => ({
-                username: user.Username,
-                email: user.Email,
-                birthday: user.Birthdate,
-                favMovies: user.FavMovies
-              }));
+            console.log("User Data from API: ", data);
+            const userInfo = {
+                username: data.Username,
+                email: data.Email,
+                birthday: data.Birthdate,
+                favMovies: data.FavMovies.map((favMovie) => favMovie.name).join(', ')
+                };
+              console.log("User Info:", userInfo)
+            updateUser(userInfo);
         })
         .catch((error) => {
             console.log(error);
@@ -53,9 +56,9 @@ return (
                 <Card>
                     <Card.Body>
                         <h2>User Information</h2>
-                        <span>User: {user.Username}</span>
-                        <span>Email: {user.Email}</span>
-                        <span>Birthdy: {user.Birthdate}</span>
+                        <p><span class="fw-bold">Username:</span> {user.Username}</p>
+                        <p><span class="fw-bold">Email:</span> {user.Email}</p>
+                        <p><span class="fw-bold">Birthdy:</span> {user.Birthdate}</p>
             </Card.Body>
             </Card>
             </Col>
@@ -73,13 +76,9 @@ return (
                 <Card>
                     <Card.Body>
                         <h2>Favorite Movies</h2>
+                        <FavoriteMovies user={user} token={token} movies={movies} isFavorite={isFavorite} />
                     </Card.Body>
                 </Card>
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-            <FavoriteMovies user={user} token={token} movies={movies} movieId={movieId} isFavorite={isFavorite} />
             </Col>
         </Row>
     </Container>

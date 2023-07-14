@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 
 import "./movie-view.scss";
+
 import { FavoriteMovies } from '../profile-view/favorite-movies';
 import { useBootstrapBreakpoints } from 'react-bootstrap/esm/ThemeProvider';
 
@@ -19,11 +20,16 @@ export const MovieView = ({ movies, user, updateUser }) => {
     const { movieId } = useParams();
 
     //searches through the list of database if movies and grabs the id to be displayed in the url
-    const movie = movies.find((movie) => movie._id === movieId);
+    const movie = movies.find((movie) => movie.id === movieId);
+    //this `movie.id` comes from movie-card.jsx ... idk why
 
-    const FavMovies = movies.filter(movie => user.FavMovies.includes(movie._id));
+    const FavMovies = movies.filter(movie => user.FavMovies.includes(movieId));
 
-    const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));
+    const [isFavorite, setIsFavorite] = useState();
+
+    console.log("movies in movie-view.jsx:", movies);
+    console.log("movie in movie-view.jsx: ", movie);
+    console.log("movieId in movie-view.jsx: ", movieId);
 
     useEffect(() => {
         setIsFavorite(user.FavMovies.includes(movieId));
@@ -56,7 +62,7 @@ export const MovieView = ({ movies, user, updateUser }) => {
     }
 
     const removeFavorite = () => {
-        fetch(`https://jmdb.herokuapp.com/users/${user.Username}/movies/${movieId}`, {
+        fetch(`https://jmdb.herokuapp.com/users/${user.Username}/movies/delete/${movieId}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` }
         })
@@ -64,13 +70,13 @@ export const MovieView = ({ movies, user, updateUser }) => {
             if (response.ok) {
                 return response.json();
             } else {
-                alert("Failed");
+                alert("Failed to remove from favorites.");
                 return false;
             }
         })
         .then(user => {
             if (user) {
-                alert("Successfully deleted from favorites");
+                alert("Successfully removed from favorites");
                 setIsFavorite(false);
                 //updateUser(user);
             }
