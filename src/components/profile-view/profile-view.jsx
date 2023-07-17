@@ -32,10 +32,9 @@ useEffect(() => {
                 username: data.Username,
                 email: data.Email,
                 birthday: data.Birthdate,
-                favMovies: data.FavMovies.map((favMovie) => favMovie.name).join(', ')
+                favMovies: data.FavMovies.map((movies) => movie={movies})
                 };
-              console.log("User Info:", userInfo)
-            updateUser(userInfo);
+              console.log("User Info:", userInfo);
         })
         .catch((error) => {
             console.log(error);

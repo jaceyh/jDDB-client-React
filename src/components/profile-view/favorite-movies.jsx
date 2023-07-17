@@ -7,10 +7,11 @@ import { Link } from "react-router-dom";
 
 import { MovieCard } from "../movie-card/movie-card";
 
-export const FavoriteMovies = ({ movies, user, token }) => { 
+export const FavoriteMovies = ({ movies, user, token, isFavorite }) => { 
     console.log("movies (passed as prop in favorite-movies.jsx): ", movies);
-    console.log("user (passed as prop in favorite-movies.jsx):", user);
-    console.log("token (passed as prop in favorite-movies.jsx) :", token);
+    console.log("user (passed as prop in favorite-movies.jsx): ", user);
+    console.log("token (passed as prop in favorite-movies.jsx): ", token);
+    console.log("isFavorite (passed as prop in favorite-movies.jsx): ", isFavorite );
     const { movieId } = useParams();
 
     //*const movie = movies.find((movie) => movie._id === movieId);*//

@@ -2,44 +2,38 @@ import React from "react";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
-export const SettingsView = ({ user, token, updateUser, onLoggedOut}) => {
+export const SettingsView = ({ user, token }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ birthday, setBirthday ] = useState("");
+    const [ updatedUser, setUpdatedUser ] = useState("");
 
+    const data = {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthdate: birthday
+    };
 
-    const updateUserInfo = (event) => {
+    const updateUser = (event) => {
         event.preventDefault();
-
-        const data = {
-            username,
-            password,
-            email,
-            birthday
-        }
-
-        fetch(`https://jmdb.herokuapp.com/users/${user.username}`, {
-        method: "PUT",
-        headers: 
-            { Authorization: `Bearer ${token}`,
-            "Content Type": "application/json" },
-        body: JSON.stringify(data),
-        })
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                alert("Update failed.");
-                return false;
+        if (!token || !user) return;
+        fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
+            method: "PUT",
+            headers: { Authorization: `Bearer ${token}`,
+        "Content Type": "application/json"
             }
+        })
+        .then((response) => response.json())
+        .then(data => {
+            console.log("Updated User Data from SettingsView: ", data);
         })
         .then((user) => {
         if (user) {
             alert("Update successful.");
-            updateUser(user);
+            setUpdatedUser(true);
         }
         })
         .catch(e => {
@@ -66,7 +60,7 @@ export const SettingsView = ({ user, token, updateUser, onLoggedOut}) => {
     }
 
     return (
-        <Form className='profile-form' onSubmit={updateUserInfo}>
+        <Form className='profile-form' onSubmit={updateUser}>
             <Form.Group controlId="formUsername">
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
@@ -75,7 +69,6 @@ export const SettingsView = ({ user, token, updateUser, onLoggedOut}) => {
                     onChange={(e) => setUsername(e.target.value)}
                     minLength="4"
                     maxLength="24"
-                    required
                     placeholder="Your username must be a minimum of 4 characters."
                 />
             </Form.Group>
@@ -87,7 +80,6 @@ export const SettingsView = ({ user, token, updateUser, onLoggedOut}) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     minLength="8"
-                    required
                     placeholder="Your password must be a minimum of 8 characters."
                 />
         </Form.Group>
@@ -98,7 +90,6 @@ export const SettingsView = ({ user, token, updateUser, onLoggedOut}) => {
                     type="email"
                     value={email}                  
                     onChange={(e) => setEmail(e.target.value)}
-                    required
                     placeholder="user@example.com"
                 />
         </Form.Group>
@@ -109,7 +100,6 @@ export const SettingsView = ({ user, token, updateUser, onLoggedOut}) => {
                     type="date"
                     value={birthday}
                     onChange={(e) => setBirthday(e.target.value)}
-                    required
                     placeholder="mm/dd/yyyy"
                 />
         </Form.Group>
