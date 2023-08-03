@@ -28,6 +28,7 @@ export const MainView = () => {
 useEffect(() => {
     console.log("useEffect triggered");
     console.log("Token: ", token);
+    console.log("User: ", user)
     if (!token) return;
     fetch("https://jmdb.herokuapp.com/movies", {
         headers: { Authorization: `Bearer ${token}` },

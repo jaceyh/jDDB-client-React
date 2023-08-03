@@ -11,13 +11,15 @@ import { SettingsView } from "./user-settings";
 import { FavoriteMovies } from "./favorite-movies";
 import { MovieCard } from "../movie-card/movie-card";
 
-export const ProfileView = ({ user, token, movies, FavMovies }) => {
+export const ProfileView = ({ user, token, movies }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ birthday, setBirthday ] = useState("");
     const [ isFavorite, setIsFavorite ] = useState("");
     const movieId = useState("");
+    const [favoriteMovies, setFavoriteMovies] = useState("");
+    const [ userInfo, setUserInfo ] = useState("");
 
 useEffect(() => {
     const getUser = () => {
@@ -32,9 +34,11 @@ useEffect(() => {
                 username: data.Username,
                 email: data.Email,
                 birthday: data.Birthdate,
-                favMovies: data.FavMovies.map((movies) => movie={movies})
+                FavMovies: data.FavMovies.map((movies) => movie={movies})
                 };
               console.log("User Info:", userInfo);
+              setFavoriteMovies(data.FavMovies);
+              setUserInfo(userInfo);
         })
         .catch((error) => {
             console.log(error);
@@ -75,7 +79,8 @@ return (
                 <Card>
                     <Card.Body>
                         <h2>Favorite Movies</h2>
-                        <FavoriteMovies user={user} token={token} movies={movies} isFavorite={isFavorite} />
+                        <div>{user.favMovies}</div>
+                        <FavoriteMovies user={userInfo} token={token} movies={movies} favoriteMovies={favoriteMovies} isFavorite={isFavorite} />
                     </Card.Body>
                 </Card>
             </Col>

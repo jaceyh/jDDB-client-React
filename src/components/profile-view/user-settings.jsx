@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
-export const SettingsView = ({ user, token }) => {
+export const SettingsView = ({ user, token, getUser }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
@@ -103,9 +103,7 @@ export const SettingsView = ({ user, token }) => {
                     placeholder="mm/dd/yyyy"
                 />
         </Form.Group>
-        <Button type="submit">Submit</Button>
-        <Button variant="danger" onClick={deleteAccount}>
-        Delete Account
-      </Button>
+        <Button type="submit" onClick={updatedUser}>Submit</Button>
+        <Button variant="danger" onClick={deleteAccount}>Delete Account</Button>
     </Form>
 )}
