@@ -46907,6 +46907,7 @@ var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
 var _reactRouterDom = require("react-router-dom");
 var _movieCard = require("../movie-card/movie-card");
+var _movieView = require("../movie-view/movie-view");
 var _s = $RefreshSig$();
 const FavoriteMovies = ({ movies , user , token , isFavorite  })=>{
     _s();
@@ -46915,10 +46916,9 @@ const FavoriteMovies = ({ movies , user , token , isFavorite  })=>{
     console.log("token (passed as prop in favorite-movies.jsx): ", token);
     console.log("isFavorite (passed as prop in favorite-movies.jsx): ", isFavorite);
     const { movieId  } = (0, _reactRouterDom.useParams)();
-    //*const movie = movies.find((movie) => movie._id === movieId);*//
-    const FavMovies = movies.filter((movie)=>user.FavMovies.includes(movie._id));
+    /*const movie = movies.find((movie) => movie._id === movieId);*/ const FavMovies = movies.filter((movie)=>user.FavMovies.includes(movie._id));
     console.log("FavMovies:", FavMovies);
-    //*const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));*//
+    //const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));
     /* useEffect(() => {
         setIsFavorite(user.FavMovies.includes(movieId));
     }, [movieId])
@@ -46935,23 +46935,23 @@ const FavoriteMovies = ({ movies , user , token , isFavorite  })=>{
                         movie: movie
                     }, void 0, false, {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 37,
+                        lineNumber: 38,
                         columnNumber: 29
                     }, undefined)
                 }, movie._id, false, {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 36,
+                    lineNumber: 37,
                     columnNumber: 25
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                lineNumber: 35,
+                lineNumber: 36,
                 columnNumber: 21
             }, undefined);
         })
     }, void 0, false, {
         fileName: "src/components/profile-view/favorite-movies.jsx",
-        lineNumber: 32,
+        lineNumber: 33,
         columnNumber: 9
     }, undefined);
 };
@@ -46970,7 +46970,7 @@ $RefreshReg$(_c, "FavoriteMovies");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-router-dom":"9xmpe","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s"}],"9YtA0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-router-dom":"9xmpe","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"c7YpB","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4251s","../movie-view/movie-view":"ggaUx"}],"9YtA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -47550,7 +47550,7 @@ const ProfileView = ({ user , token , movies  })=>{
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 class: "fw-bold",
-                                                children: "Birthdy:"
+                                                children: "Birthday:"
                                             }, void 0, false, {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
                                                 lineNumber: 64,

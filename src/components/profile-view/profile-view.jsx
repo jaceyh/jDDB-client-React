@@ -61,7 +61,7 @@ return (
                         <h2>User Information</h2>
                         <p><span class="fw-bold">Username:</span> {user.Username}</p>
                         <p><span class="fw-bold">Email:</span> {user.Email}</p>
-                        <p><span class="fw-bold">Birthdy:</span> {user.Birthdate}</p>
+                        <p><span class="fw-bold">Birthday:</span> {user.Birthdate}</p>
             </Card.Body>
             </Card>
             </Col>

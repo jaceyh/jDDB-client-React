@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
 
 export const FavoriteMovies = ({ movies, user, token, isFavorite }) => { 
     console.log("movies (passed as prop in favorite-movies.jsx): ", movies);
@@ -14,13 +15,13 @@ export const FavoriteMovies = ({ movies, user, token, isFavorite }) => {
     console.log("isFavorite (passed as prop in favorite-movies.jsx): ", isFavorite );
     const { movieId } = useParams();
 
-    //*const movie = movies.find((movie) => movie._id === movieId);*//
+    /*const movie = movies.find((movie) => movie._id === movieId);*/
 
     const FavMovies = movies.filter((movie) => user.FavMovies.includes(movie._id));
 
     console.log("FavMovies:", FavMovies);
 
-    //*const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));*//
+    //const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));
 
     /* useEffect(() => {
         setIsFavorite(user.FavMovies.includes(movieId));
