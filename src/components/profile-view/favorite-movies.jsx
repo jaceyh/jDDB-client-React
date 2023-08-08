@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { ProfileView } from "./profile-view";
 
 export const FavoriteMovies = ({ movies, user, token, isFavorite }) => { 
     console.log("movies (passed as prop in favorite-movies.jsx): ", movies);
