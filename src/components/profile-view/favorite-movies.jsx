@@ -16,11 +16,11 @@ export const FavoriteMovies = ({ movies, user, token, isFavorite }) => {
     console.log("isFavorite (passed as prop in favorite-movies.jsx): ", isFavorite );
     const { movieId } = useParams();
 
-    /*const movie = movies.find((movie) => movie._id === movieId);*/
+    //const movie = movies.find((movie) => movie._id === movieId);
 
-    const FavMovies = movies.filter((movie) => user.FavMovies.includes(movie._id));
+    //const FavMovies = movies.filter((movie) => user.FavMovies.includes(movie._id));
 
-    console.log("FavMovies:", FavMovies);
+    const FavMovies = user.FavMovies; 
 
     //const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));
 
@@ -28,7 +28,6 @@ export const FavoriteMovies = ({ movies, user, token, isFavorite }) => {
         setIsFavorite(user.FavMovies.includes(movieId));
     }, [movieId])
     */
-
 
     return (
         <Row>

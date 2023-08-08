@@ -46917,8 +46917,9 @@ const FavoriteMovies = ({ movies , user , token , isFavorite  })=>{
     console.log("token (passed as prop in favorite-movies.jsx): ", token);
     console.log("isFavorite (passed as prop in favorite-movies.jsx): ", isFavorite);
     const { movieId  } = (0, _reactRouterDom.useParams)();
-    /*const movie = movies.find((movie) => movie._id === movieId);*/ const FavMovies = movies.filter((movie)=>user.FavMovies.includes(movie._id));
-    console.log("FavMovies:", FavMovies);
+    //const movie = movies.find((movie) => movie._id === movieId);
+    //const FavMovies = movies.filter((movie) => user.FavMovies.includes(movie._id));
+    const FavMovies = user.FavMovies;
     //const [isFavorite, setIsFavorite] = useState(user.FavMovies.includes(movie._id));
     /* useEffect(() => {
         setIsFavorite(user.FavMovies.includes(movieId));
@@ -46936,23 +46937,23 @@ const FavoriteMovies = ({ movies , user , token , isFavorite  })=>{
                         movie: movie
                     }, void 0, false, {
                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                        lineNumber: 39,
+                        lineNumber: 38,
                         columnNumber: 29
                     }, undefined)
                 }, movie._id, false, {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 38,
+                    lineNumber: 37,
                     columnNumber: 25
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                lineNumber: 37,
+                lineNumber: 36,
                 columnNumber: 21
             }, undefined);
         })
     }, void 0, false, {
         fileName: "src/components/profile-view/favorite-movies.jsx",
-        lineNumber: 34,
+        lineNumber: 33,
         columnNumber: 9
     }, undefined);
 };
