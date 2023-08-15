@@ -149,13 +149,13 @@ useEffect(() => {
                     <Route
                         path="/users/:username"
                         element={
-                            <>
+                            <Col md={5}>
                                 <ProfileView 
                                 user={user} 
                                 token={token} 
                                 movies={movies} 
                                 isFavorite={isFavorite} />
-                            </>
+                            </Col>
                         }
                     />
                     <Route

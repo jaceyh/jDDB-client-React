@@ -7,6 +7,7 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import { MainView } from "../main-view/main-view";
 import { SettingsView } from "./user-settings";
 import { FavoriteMovies } from "./favorite-movies";
 import { MovieCard } from "../movie-card/movie-card";
@@ -69,7 +70,7 @@ return (
                 <Card>
                     <Card.Body>
                         <h2>Update Something?</h2>
-                        <p><SettingsView user={user} token={token} /></p>
+                        <p><SettingsView user={user} token={token}/></p>
                     </Card.Body>
                 </Card>
             </Col>

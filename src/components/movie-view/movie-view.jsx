@@ -10,6 +10,7 @@ import { Button } from 'react-bootstrap';
 import "./movie-view.scss";
 
 import { FavoriteMovies } from '../profile-view/favorite-movies';
+import { updateUser } from '../profile-view/user-settings';
 import { useBootstrapBreakpoints } from 'react-bootstrap/esm/ThemeProvider';
 
 export const MovieView = ({ movies, user, updateUser }) => {
@@ -54,7 +55,7 @@ export const MovieView = ({ movies, user, updateUser }) => {
             if (user) {
                 alert("Successfully added to favorites");
                 setIsFavorite(true);
-                //updateUser(user);
+                updateUser(user);
             }
         })
         .catch(e => {

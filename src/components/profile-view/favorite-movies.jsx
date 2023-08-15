@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import { MainView } from "../main-view/main-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { ProfileView } from "./profile-view";
@@ -28,6 +29,7 @@ export const FavoriteMovies = ({ movies, user, token, isFavorite }) => {
         setIsFavorite(user.FavMovies.includes(movieId));
     }, [movieId])
     */
+
 
     return (
         <Row>
