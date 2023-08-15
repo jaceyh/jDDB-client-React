@@ -17,6 +17,9 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser? storedUser : null);
     const [token, setToken] = useState(storedToken? storedToken : null);
 
+    //updateUser (state function)
+    const [updateUser, setUpdateUser] = useState([]);
+
     //state puts movies from API into an array
     const [movies, setMovies] = useState([]);
 
@@ -121,7 +124,8 @@ useEffect(() => {
                                         <MovieView 
                                         movies={movies}
                                         movie={selectedMovie}
-                                        user={user} 
+                                        user={user}
+                                        setUpdateUser={setUpdateUser} 
                                         />
                                     </Col>
                                 )}

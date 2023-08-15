@@ -10,10 +10,11 @@ import { Button } from 'react-bootstrap';
 import "./movie-view.scss";
 
 import { FavoriteMovies } from '../profile-view/favorite-movies';
-import { updateUser } from '../profile-view/user-settings';
+import { MainView } from '../main-view/main-view';
+import { handleUpdate } from '../profile-view/user-settings';
 import { useBootstrapBreakpoints } from 'react-bootstrap/esm/ThemeProvider';
 
-export const MovieView = ({ movies, user, updateUser }) => {
+export const MovieView = ({ movies, user, setUpdateUser }) => {
 
     const storedToken = localStorage.getItem("token");
     const [token, setToken] = useState(storedToken? storedToken : null);
@@ -34,7 +35,11 @@ export const MovieView = ({ movies, user, updateUser }) => {
     console.log("movieId in movie-view.jsx: ", movieId);
 
     useEffect(() => {
-        setIsFavorite(user.FavMovies.includes(movieId));
+        console.log("user in movie-view.jsx:", user);
+        if(user.FavMovies &&  user.FavMovies.includes(movieId) ){
+            setIsFavorite(true);
+        }
+        //setIsFavorite(user.FavMovies.includes(movieId));
         window.scrollTo(0, 0);
     }, [movieId])
 
@@ -55,7 +60,8 @@ export const MovieView = ({ movies, user, updateUser }) => {
             if (user) {
                 alert("Successfully added to favorites");
                 setIsFavorite(true);
-                updateUser(user);
+                handleUpdate;
+                setUpdateUser(user);
             }
         })
         .catch(e => {
@@ -80,7 +86,8 @@ export const MovieView = ({ movies, user, updateUser }) => {
             if (user) {
                 alert("Successfully removed from favorites");
                 setIsFavorite(false);
-                //updateUser(user);
+                handleUpdate;
+                setUpdateUser(user);
             }
         })
         .catch(e => {

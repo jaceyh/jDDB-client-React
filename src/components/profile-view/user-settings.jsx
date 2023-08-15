@@ -14,10 +14,11 @@ export const SettingsView = ({ user, token, getUser }) => {
         Username: username,
         Password: password,
         Email: email,
-        Birthdate: birthday
+        Birthdate: birthday,
+        FavMovies: [],
     };
 
-    const updateUser = (event) => {
+    const handleUpdate = (event) => {
         event.preventDefault();
         if (!token || !user) return;
         fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
@@ -60,7 +61,7 @@ export const SettingsView = ({ user, token, getUser }) => {
     }
 
     return (
-        <Form className='profile-form' onSubmit={updateUser}>
+        <Form className='profile-form' onSubmit={handleUpdate}>
             <Form.Group controlId="formUsername">
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
