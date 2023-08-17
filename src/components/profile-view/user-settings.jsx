@@ -24,8 +24,9 @@ export const SettingsView = ({ user, token, getUser }) => {
         fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
             headers: { Authorization: `Bearer ${token}`,
-        "Content Type": "application/json"
-            }
+        "Content Type": "application/json",
+            },
+            //body: JSON.stringify(user)
         })
         .then((response) => response.json())
         .then(data => {

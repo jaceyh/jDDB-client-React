@@ -60,7 +60,7 @@ export const MovieView = ({ movies, user, setUpdateUser }) => {
             if (user) {
                 alert("Successfully added to favorites");
                 setIsFavorite(true);
-                handleUpdate;
+                user.FavMovies.push(movieId);
                 setUpdateUser(user);
             }
         })
@@ -86,7 +86,7 @@ export const MovieView = ({ movies, user, setUpdateUser }) => {
             if (user) {
                 alert("Successfully removed from favorites");
                 setIsFavorite(false);
-                handleUpdate;
+                user.FavMovies = user.FavMovies.filter(id => id !== movieId);
                 setUpdateUser(user);
             }
         })
