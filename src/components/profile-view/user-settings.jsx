@@ -18,9 +18,13 @@ export const SettingsView = ({ user, token, getUser }) => {
         FavMovies: [],
     };
 
+    console.log(user, token);
+
     const handleUpdate = (event) => {
-        event.preventDefault();
+        console.log("THIS IS A TEST");
+        //event.preventDefault();
         if (!token || !user) return;
+        console.log(`https://jmdb.herokuapp.com/users/${user.Username}`)
         fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
             headers: { Authorization: `Bearer ${token}`,
