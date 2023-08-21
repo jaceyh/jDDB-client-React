@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
+import { MainView } from "../main-view/main-view";
+
 export const SettingsView = ({ user, token, getUser }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");

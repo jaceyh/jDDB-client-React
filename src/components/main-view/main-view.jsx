@@ -14,11 +14,14 @@ export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
 
+    //keeps track of user once a user logs in and stores it in storedUser state
     const [user, setUser] = useState(storedUser? storedUser : null);
+    
+    //keeps track of tokens once a user logs in and stores it in storedToken state
     const [token, setToken] = useState(storedToken? storedToken : null);
 
     //updateUser (state function)
-    const [updateUser, setUpdateUser] = useState([]);
+    //const [updateUser, setUpdateUser] = useState([]);
 
     //state puts movies from API into an array
     const [movies, setMovies] = useState([]);
@@ -56,6 +59,13 @@ useEffect(() => {
             console.log(error);
         });
     }, [token]);
+
+  //updates users state by taking users actions and putting them in setUser and then updating the new information to the users state
+  const updatedUser = (user) => {
+    setUser(user);
+    localStorage.setItem('user', JSON.stringify(user));
+  };
+  console.log("after updatedUser(): ", user);
 
 
     return(
@@ -125,7 +135,7 @@ useEffect(() => {
                                         movies={movies}
                                         movie={selectedMovie}
                                         user={user}
-                                        setUpdateUser={setUpdateUser} 
+                                        setUser={setUser}
                                         />
                                     </Col>
                                 )}
@@ -155,8 +165,8 @@ useEffect(() => {
                         element={
                             <Col md={5}>
                                 <ProfileView 
-                                user={user} 
-                                token={token} 
+                                user={user}
+                                setToken={setToken}  
                                 movies={movies} 
                                 isFavorite={isFavorite} />
                             </Col>
@@ -177,7 +187,7 @@ useEffect(() => {
                                                 <MovieCard 
                                                 movie={movie}
                                                 key={movie._id}
-                                                user={user}
+                                                setUser={setUser}
                                                 token={token} />
                                             </Col>
                                         ))}

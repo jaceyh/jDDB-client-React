@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useEffect, useState } from "react";
@@ -30,7 +30,7 @@ export const FavoriteMovies = ({ movies, user, token, isFavorite }) => {
     }, [movieId])
     */
 
-
+/*
     return (
         <Row>
             {FavMovies.map((movie) => {
@@ -46,4 +46,5 @@ export const FavoriteMovies = ({ movies, user, token, isFavorite }) => {
     )
 }
 
-export default FavoriteMovies;
+export default FavoriteMovies; 
+*/

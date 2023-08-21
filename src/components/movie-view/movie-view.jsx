@@ -14,7 +14,7 @@ import { MainView } from '../main-view/main-view';
 import { handleUpdate } from '../profile-view/user-settings';
 import { useBootstrapBreakpoints } from 'react-bootstrap/esm/ThemeProvider';
 
-export const MovieView = ({ movies, user, setUpdateUser }) => {
+export const MovieView = ({ movies, user, setUser }) => {
 
     const storedToken = localStorage.getItem("token");
     const [token, setToken] = useState(storedToken? storedToken : null);
@@ -26,7 +26,8 @@ export const MovieView = ({ movies, user, setUpdateUser }) => {
     const movie = movies.find((movie) => movie.id === movieId);
     //this `movie.id` comes from movie-card.jsx ... idk why
 
-    const FavMovies = movies.filter(movie => user.FavMovies.includes(movieId));
+    const FavMovies = user.FavMovies;
+    FavMovies.filter(movie => user.FavMovies.includes(movieId));
 
     const [isFavorite, setIsFavorite] = useState();
 
@@ -61,7 +62,7 @@ export const MovieView = ({ movies, user, setUpdateUser }) => {
                 alert("Successfully added to favorites");
                 setIsFavorite(true);
                 user.FavMovies.push(movieId);
-                setUpdateUser(user);
+                setUser(user);
             }
         })
         .catch(e => {
@@ -86,8 +87,8 @@ export const MovieView = ({ movies, user, setUpdateUser }) => {
             if (user) {
                 alert("Successfully removed from favorites");
                 setIsFavorite(false);
-                user.FavMovies = user.FavMovies.filter(id => id !== movieId);
-                setUpdateUser(user);
+                user.FavMovies = user.FavMovies.filter(id => id === movieId).slice();
+                setUser(user);
             }
         })
         .catch(e => {

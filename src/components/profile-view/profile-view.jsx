@@ -22,6 +22,9 @@ export const ProfileView = ({ user, token, movies }) => {
     const [favoriteMovies, setFavoriteMovies] = useState("");
     const [ userInfo, setUserInfo ] = useState("");
 
+
+    console.log("user:", user);
+/*
 useEffect(() => {
     const getUser = () => {
         if (!token || !user) return;
@@ -35,7 +38,7 @@ useEffect(() => {
                 username: data.Username,
                 email: data.Email,
                 birthday: data.Birthdate,
-                FavMovies: data.FavMovies /*data.FavMovies.map((movies) => movie={movies})*/
+                FavMovies: data.FavMovies /*data.FavMovies.map((movies) => movie={movies})*/ /*
                 };
               console.log("User Info:", userInfo);
               setFavoriteMovies(data.FavMovies);
@@ -47,6 +50,7 @@ useEffect(() => {
     }
     getUser();
 }, [token, user]);
+*/
 
 return (
     <Container>
@@ -80,10 +84,11 @@ return (
                 <Card>
                     <Card.Body>
                         <h2>Favorite Movies</h2>
-                        <div>{user.favMovies}</div>
-                        {/*
+                        <div>{user.favMovies}
+                        </div>
+                        {/*{
                         <FavoriteMovies user={userInfo} token={token} movies={movies} favoriteMovies={favoriteMovies} isFavorite={isFavorite} />
-                        */}
+                        }*/}
                     </Card.Body>
                 </Card>
             </Col>
