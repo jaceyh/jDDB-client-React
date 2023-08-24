@@ -9,7 +9,6 @@ import { Button } from 'react-bootstrap';
 
 import "./movie-view.scss";
 
-import { FavoriteMovies } from '../profile-view/favorite-movies';
 import { MainView } from '../main-view/main-view';
 import { handleUpdate } from '../profile-view/user-settings';
 import { useBootstrapBreakpoints } from 'react-bootstrap/esm/ThemeProvider';
@@ -61,8 +60,11 @@ export const MovieView = ({ movies, user, setUser }) => {
             if (user) {
                 alert("Successfully added to favorites");
                 setIsFavorite(true);
+                console.log("user after setIsFavorite: ", user);
                 user.FavMovies.push(movieId);
+                console.log("user after user.FavMovies.push(movieId): ", user);
                 setUser(user);
+                console.log("user after setUser(user):  ", user);
             }
         })
         .catch(e => {
@@ -87,8 +89,11 @@ export const MovieView = ({ movies, user, setUser }) => {
             if (user) {
                 alert("Successfully removed from favorites");
                 setIsFavorite(false);
+                console.log("user after setIsFavorite(false): ", user);
                 user.FavMovies = user.FavMovies.filter(id => id === movieId).slice();
+                console.log("user after user.FavMovies.filter().slice(): ", user);
                 setUser(user);
+                console.log("user after setUser: ", user);
             }
         })
         .catch(e => {

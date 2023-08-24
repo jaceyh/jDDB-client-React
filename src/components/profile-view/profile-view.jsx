@@ -9,8 +9,8 @@ import { useState, useEffect } from "react";
 
 import { MainView } from "../main-view/main-view";
 import { SettingsView } from "./user-settings";
-import { FavoriteMovies } from "./favorite-movies";
 import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
 
 export const ProfileView = ({ user, token, movies }) => {
     const [ username, setUsername ] = useState("");
@@ -74,7 +74,10 @@ return (
                 <Card>
                     <Card.Body>
                         <h2>Update Something?</h2>
-                        <p><SettingsView user={user} token={token}/></p>
+                        <p><SettingsView 
+                            user={user}
+                            token={token}
+                            movies={movies} /></p>
                     </Card.Body>
                 </Card>
             </Col>
@@ -87,7 +90,7 @@ return (
                         <div>{user.favMovies}
                         </div>
                         {/*{
-                        <FavoriteMovies user={userInfo} token={token} movies={movies} favoriteMovies={favoriteMovies} isFavorite={isFavorite} />
+                        <MovieView user={userInfo} token={token} movies={movies} favoriteMovies={favoriteMovies} isFavorite={isFavorite} />
                         }*/}
                     </Card.Body>
                 </Card>
