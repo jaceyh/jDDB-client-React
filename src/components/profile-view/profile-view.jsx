@@ -66,7 +66,7 @@ return (
                         <h2>User Information</h2>
                         <p><span class="fw-bold">Username:</span> {user.Username}</p>
                         <p><span class="fw-bold">Email:</span> {user.Email}</p>
-                        <p><span class="fw-bold">Birthday:</span> {user.Birthdate}</p>
+                        <p><span class="fw-bold">Birthday:</span> {user.Birthdate.slice(0,10)}</p>
             </Card.Body>
             </Card>
             </Col>
@@ -87,11 +87,10 @@ return (
                 <Card>
                     <Card.Body>
                         <h2>Favorite Movies</h2>
-                        <div>{user.favMovies}
+                        <div>{user.FavMovies.map((movie) => (
+                        <MovieCard  movie={movie} />
+                        ))}
                         </div>
-                        {/*{
-                        <MovieView user={userInfo} token={token} movies={movies} favoriteMovies={favoriteMovies} isFavorite={isFavorite} />
-                        }*/}
                     </Card.Body>
                 </Card>
             </Col>
