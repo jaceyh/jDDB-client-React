@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 import { MainView } from "../main-view/main-view";
 import { ProfileView } from "./profile-view";
 
-export const SettingsView = ({ user, token, getUser }) => {
+export const SettingsView = ({ user, setToken, getUser }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
@@ -21,7 +21,7 @@ export const SettingsView = ({ user, token, getUser }) => {
         FavMovies: [],
     };
 
-    console.log(user, token);
+    console.log("user: ", user);
 
     const handleUpdate = (event) => {
         console.log("THIS IS A TEST");

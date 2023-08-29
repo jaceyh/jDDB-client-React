@@ -46929,7 +46929,7 @@ var _reactBootstrap = require("react-bootstrap");
 var _mainView = require("../main-view/main-view");
 var _profileView = require("./profile-view");
 var _s = $RefreshSig$();
-const SettingsView = ({ user , token , getUser  })=>{
+const SettingsView = ({ user , setToken , getUser  })=>{
     _s();
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
@@ -46943,7 +46943,7 @@ const SettingsView = ({ user , token , getUser  })=>{
         Birthdate: birthday,
         FavMovies: []
     };
-    console.log(user, token);
+    console.log("user: ", user);
     const handleUpdate = (event)=>{
         console.log("THIS IS A TEST");
         //event.preventDefault();
@@ -47156,7 +47156,7 @@ var _userSettings = require("./user-settings");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 var _s = $RefreshSig$();
-const ProfileView = ({ user , token , movies  })=>{
+const ProfileView = ({ user , setToken , movies  })=>{
     _s();
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
@@ -47318,7 +47318,7 @@ useEffect(() => {
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userSettings.SettingsView), {
                                             user: user,
-                                            token: token,
+                                            setToken: setToken,
                                             movies: movies
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/profile-view.jsx",
@@ -47364,20 +47364,21 @@ useEffect(() => {
                                     lineNumber: 95,
                                     columnNumber: 25
                                 }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    children: user.favMovies && user.favMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                                user.favMovies && user.favMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                             movie: movie,
-                                            user: user
+                                            user: setUser,
+                                            setToken: setToken
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 97,
-                                            columnNumber: 25
-                                        }, undefined))
-                                }, void 0, false, {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 96,
-                                    columnNumber: 25
-                                }, undefined)
+                                            lineNumber: 98,
+                                            columnNumber: 29
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 97,
+                                        columnNumber: 25
+                                    }, undefined))
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.jsx",

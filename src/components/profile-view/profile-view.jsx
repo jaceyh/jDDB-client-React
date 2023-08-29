@@ -12,7 +12,7 @@ import { SettingsView } from "./user-settings";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
-export const ProfileView = ({ user, token, movies }) => {
+export const ProfileView = ({ user, setToken, movies }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
@@ -73,8 +73,8 @@ return (
                         <p><span class="fw-bold">Username:</span> {user.Username}</p>
                         <p><span class="fw-bold">Email:</span> {user.Email}</p>
                         <p><span class="fw-bold">Birthday:</span> {user.Birthdate.slice(0,10)}</p>
-            </Card.Body>
-            </Card>
+                    </Card.Body>
+                </Card>
             </Col>
             <Col>
                 <Card>
@@ -82,7 +82,7 @@ return (
                         <h2>Update Something?</h2>
                         <p><SettingsView 
                             user={user}
-                            token={token}
+                            setToken={setToken}
                             movies={movies} /></p>
                     </Card.Body>
                 </Card>
@@ -93,10 +93,14 @@ return (
                 <Card>
                     <Card.Body>
                         <h2>Favorite Movies</h2>
-                        <div>{user.favMovies&&user.favMovies.map((movie) => (
-                        <MovieCard  movie={movie} user={user} />
+                        {user.favMovies&&user.favMovies.map((movie) => (
+                        <Col>
+                            <MovieCard  
+                            movie={movie} 
+                            user={setUser} 
+                            setToken={setToken} />
+                        </Col>
                         ))}
-                        </div>
                     </Card.Body>
                 </Card>
             </Col>
