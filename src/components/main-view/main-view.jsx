@@ -167,7 +167,7 @@ useEffect(() => {
                                 <ProfileView 
                                 user={user}
                                 setToken={setToken}  
-                                movies={movies} 
+                                movies={movies}
                                 isFavorite={isFavorite} />
                             </Col>
                         }

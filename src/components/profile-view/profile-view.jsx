@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { MainView } from "../main-view/main-view";
@@ -18,12 +18,18 @@ export const ProfileView = ({ user, token, movies }) => {
     const [ email, setEmail ] = useState("");
     const [ birthday, setBirthday ] = useState("");
     const [ isFavorite, setIsFavorite ] = useState("");
-    const movieId = useState("");
     const [favoriteMovies, setFavoriteMovies] = useState("");
     const [ userInfo, setUserInfo ] = useState("");
 
+    //gets movie id from database and uses it as the parameters in the url
+    const { movieId } = useParams();
 
     console.log("user:", user);
+    console.log("movies: ", movies);
+
+
+    const favMovies = movies.filter((movie) => user.FavMovies.includes(movie.id));
+    console.log("favMovies: ", favMovies);
 /*
 useEffect(() => {
     const getUser = () => {
@@ -87,8 +93,8 @@ return (
                 <Card>
                     <Card.Body>
                         <h2>Favorite Movies</h2>
-                        <div>{user.FavMovies.map((movie) => (
-                        <MovieCard  movie={movie} />
+                        <div>{user.favMovies&&user.favMovies.map((movie) => (
+                        <MovieCard  movie={movie} user={user} />
                         ))}
                         </div>
                     </Card.Body>
