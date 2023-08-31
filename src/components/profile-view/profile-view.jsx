@@ -95,11 +95,11 @@ return (
                 <Card>
                     <Card.Body>
                         <h2>Favorite Movies</h2>
-                        {user.favMovies&&user.favMovies.map((movie) => (
+                        {favMovies&&favMovies.map((movie) => (
                         <Col>
                             <MovieCard  
                             movie={movie} 
-                            user={setUser} 
+                            user={user} 
                             setToken={setToken}
                             key={movie._id} />
                         </Col>

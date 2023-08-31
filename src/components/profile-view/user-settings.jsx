@@ -26,7 +26,7 @@ export const SettingsView = ({ user, setToken }) => {
     const handleUpdate = (event) => {
         console.log("THIS IS A TEST");
         //event.preventDefault();
-        if (!token || !user) return;
+        /*if (!token || !user) return;
         console.log(`https://jmdb.herokuapp.com/users/${user.Username}`)
         fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
@@ -43,11 +43,11 @@ export const SettingsView = ({ user, setToken }) => {
         if (user) {
             alert("Update successful.");
             setUpdatedUser(true);
-        }
+        }   
         })
         .catch(e => {
             alert(e);
-        });
+        });*/
     }
 
     const deleteAccount = () => {
@@ -76,6 +76,7 @@ export const SettingsView = ({ user, setToken }) => {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    onBlur={(e) => setUpdatedUser(e.target.value)}
                     minLength="4"
                     maxLength="24"
                     placeholder="Your username must be a minimum of 4 characters."

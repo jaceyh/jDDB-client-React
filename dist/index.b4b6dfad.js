@@ -46947,26 +46947,29 @@ const SettingsView = ({ user , setToken  })=>{
     console.log("user: ", user);
     const handleUpdate = (event)=>{
         console.log("THIS IS A TEST");
-        //event.preventDefault();
-        if (!token || !user) return;
-        console.log(`https://jmdb.herokuapp.com/users/${user.Username}`);
+    //event.preventDefault();
+    /*if (!token || !user) return;
+        console.log(`https://jmdb.herokuapp.com/users/${user.Username}`)
         fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content Type": "application/json"
-            }
-        }).then((response)=>response.json()).then((data)=>{
+            headers: { Authorization: `Bearer ${token}`,
+        "Content Type": "application/json",
+            },
+            //body: JSON.stringify(user)
+        })
+        .then((response) => response.json())
+        .then(data => {
             console.log("Updated User Data from SettingsView: ", data);
-        }).then((user)=>{
-            if (user) {
-                alert("Update successful.");
-                setUpdatedUser(true);
-            }
-        }).catch((e)=>{
+        })
+        .then((user) => {
+        if (user) {
+            alert("Update successful.");
+            setUpdatedUser(true);
+        }   
+        })
+        .catch(e => {
             alert(e);
-        });
-    };
+        });*/ };
     const deleteAccount = ()=>{
         fetch(`https://jmdb.herokuapp.com/users/delete/${user.username}`, {
             method: "DELETE",
@@ -47000,6 +47003,7 @@ const SettingsView = ({ user , setToken  })=>{
                         type: "text",
                         value: username,
                         onChange: (e)=>setUsername(e.target.value),
+                        onBlur: (e)=>setUpdatedUser(e.target.value),
                         minLength: "4",
                         maxLength: "24",
                         placeholder: "Your username must be a minimum of 4 characters."
@@ -47021,7 +47025,7 @@ const SettingsView = ({ user , setToken  })=>{
                         children: "Password:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 86,
+                        lineNumber: 87,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47032,13 +47036,13 @@ const SettingsView = ({ user , setToken  })=>{
                         placeholder: "Your password must be a minimum of 8 characters."
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 87,
+                        lineNumber: 88,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 85,
+                lineNumber: 86,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47048,7 +47052,7 @@ const SettingsView = ({ user , setToken  })=>{
                         children: "Email:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 97,
+                        lineNumber: 98,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47058,13 +47062,13 @@ const SettingsView = ({ user , setToken  })=>{
                         placeholder: "user@example.com"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 98,
+                        lineNumber: 99,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 96,
+                lineNumber: 97,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47074,7 +47078,7 @@ const SettingsView = ({ user , setToken  })=>{
                         children: "Birthday:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 107,
+                        lineNumber: 108,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47084,13 +47088,13 @@ const SettingsView = ({ user , setToken  })=>{
                         placeholder: "mm/dd/yyyy"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 108,
+                        lineNumber: 109,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 106,
+                lineNumber: 107,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -47099,7 +47103,7 @@ const SettingsView = ({ user , setToken  })=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 115,
+                lineNumber: 116,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -47108,7 +47112,7 @@ const SettingsView = ({ user , setToken  })=>{
                 children: "Delete Account"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 116,
+                lineNumber: 117,
                 columnNumber: 9
             }, undefined)
         ]
@@ -47366,10 +47370,10 @@ useEffect(() => {
                                     lineNumber: 97,
                                     columnNumber: 25
                                 }, undefined),
-                                user.favMovies && user.favMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                                favMovies && favMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                             movie: movie,
-                                            user: setUser,
+                                            user: user,
                                             setToken: setToken
                                         }, movie._id, false, {
                                             fileName: "src/components/profile-view/profile-view.jsx",
