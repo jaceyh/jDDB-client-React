@@ -27349,7 +27349,8 @@ const MainView = ()=>{
                                     user: user,
                                     setToken: setToken,
                                     movies: movies,
-                                    isFavorite: isFavorite
+                                    isFavorite: isFavorite,
+                                    updatedUser: updatedUser
                                 }, void 0, false, void 0, void 0)
                             }, void 0, false, void 0, void 0)
                         }, void 0, false, {
@@ -27379,7 +27380,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 175,
+                            lineNumber: 176,
                             columnNumber: 21
                         }, undefined)
                     ]
@@ -46929,7 +46930,7 @@ var _reactBootstrap = require("react-bootstrap");
 var _mainView = require("../main-view/main-view");
 var _profileView = require("./profile-view");
 var _s = $RefreshSig$();
-const SettingsView = ({ user , setToken , getUser  })=>{
+const SettingsView = ({ user , setToken  })=>{
     _s();
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
@@ -47156,7 +47157,7 @@ var _userSettings = require("./user-settings");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 var _s = $RefreshSig$();
-const ProfileView = ({ user , setToken , movies  })=>{
+const ProfileView = ({ user , setToken , movies , updatedUser  })=>{
     _s();
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
@@ -47164,7 +47165,7 @@ const ProfileView = ({ user , setToken , movies  })=>{
     const [birthday, setBirthday] = (0, _react.useState)("");
     const [isFavorite, setIsFavorite] = (0, _react.useState)("");
     const [favoriteMovies, setFavoriteMovies] = (0, _react.useState)("");
-    const [userInfo, setUserInfo] = (0, _react.useState)("");
+    //const [ userInfo, setUserInfo ] = useState("");
     //gets movie id from database and uses it as the parameters in the url
     const { movieId  } = (0, _reactRouterDom.useParams)();
     console.log("user:", user);
@@ -47319,7 +47320,8 @@ useEffect(() => {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userSettings.SettingsView), {
                                             user: user,
                                             setToken: setToken,
-                                            movies: movies
+                                            movies: movies,
+                                            updatedUser: updatedUser
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/profile-view.jsx",
                                             lineNumber: 83,
@@ -47361,7 +47363,7 @@ useEffect(() => {
                                     children: "Favorite Movies"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 95,
+                                    lineNumber: 97,
                                     columnNumber: 25
                                 }, undefined),
                                 user.favMovies && user.favMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
@@ -47369,35 +47371,35 @@ useEffect(() => {
                                             movie: movie,
                                             user: setUser,
                                             setToken: setToken
-                                        }, void 0, false, {
+                                        }, movie._id, false, {
                                             fileName: "src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 98,
+                                            lineNumber: 100,
                                             columnNumber: 29
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 97,
+                                        lineNumber: 99,
                                         columnNumber: 25
                                     }, undefined))
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 94,
+                            lineNumber: 96,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 93,
+                        lineNumber: 95,
                         columnNumber: 17
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 92,
+                    lineNumber: 94,
                     columnNumber: 13
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 91,
+                lineNumber: 93,
                 columnNumber: 9
             }, undefined)
         ]
@@ -47407,7 +47409,7 @@ useEffect(() => {
         columnNumber: 5
     }, undefined);
 };
-_s(ProfileView, "6PoVvN0UJbIJdYCRciJ/G/c8Tqk=", false, function() {
+_s(ProfileView, "gDabRSKsL4kgCAyfzirev8/OcVc=", false, function() {
     return [
         (0, _reactRouterDom.useParams)
     ];

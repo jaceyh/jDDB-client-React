@@ -12,14 +12,14 @@ import { SettingsView } from "./user-settings";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
-export const ProfileView = ({ user, setToken, movies }) => {
+export const ProfileView = ({ user, setToken, movies, updatedUser }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ birthday, setBirthday ] = useState("");
     const [ isFavorite, setIsFavorite ] = useState("");
     const [favoriteMovies, setFavoriteMovies] = useState("");
-    const [ userInfo, setUserInfo ] = useState("");
+    //const [ userInfo, setUserInfo ] = useState("");
 
     //gets movie id from database and uses it as the parameters in the url
     const { movieId } = useParams();
@@ -83,7 +83,9 @@ return (
                         <p><SettingsView 
                             user={user}
                             setToken={setToken}
-                            movies={movies} /></p>
+                            movies={movies} 
+                            updatedUser={updatedUser} />
+                        </p>
                     </Card.Body>
                 </Card>
             </Col>
@@ -98,7 +100,8 @@ return (
                             <MovieCard  
                             movie={movie} 
                             user={setUser} 
-                            setToken={setToken} />
+                            setToken={setToken}
+                            key={movie._id} />
                         </Col>
                         ))}
                     </Card.Body>

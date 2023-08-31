@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 import { MainView } from "../main-view/main-view";
 import { ProfileView } from "./profile-view";
 
-export const SettingsView = ({ user, setToken, getUser }) => {
+export const SettingsView = ({ user, setToken }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
