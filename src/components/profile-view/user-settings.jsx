@@ -6,49 +6,50 @@ import { Button } from "react-bootstrap";
 import { MainView } from "../main-view/main-view";
 import { ProfileView } from "./profile-view";
 
-export const SettingsView = ({ user, setToken }) => {
-    const [ username, setUsername ] = useState("");
+export const SettingsView = ({ user, token, setUser }) => {
+    const [ username, setUsername ] = useState(user.Username);
     const [ password, setPassword ] = useState("");
-    const [ email, setEmail ] = useState("");
-    const [ birthday, setBirthday ] = useState("");
-    const [ updatedUser, setUpdatedUser ] = useState("");
+    const [ email, setEmail ] = useState(user.Email);
+    const [ birthday, setBirthday ] = useState(user.Birthdate);
 
-    const data = {
-        Username: username,
-        Password: password,
-        Email: email,
-        Birthdate: birthday,
-        FavMovies: [],
-    };
 
     console.log("user: ", user);
+    console.log("token: ", token);
 
     const handleUpdate = (event) => {
-        console.log("THIS IS A TEST");
-        //event.preventDefault();
-        /*if (!token || !user) return;
-        console.log(`https://jmdb.herokuapp.com/users/${user.Username}`)
-        fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
+        event.preventDefault();
+
+        const data = {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthdate: birthday,
+        };
+    
+        if (!token || !user) return;
+
+        console.log("https://jmdb.herokuapp.com/users/" + user.Username )
+
+       // fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
+        fetch("https://jmdb.herokuapp.com/users/" + user.Username, {
             method: "PUT",
+            body: JSON.stringify(data),
             headers: { Authorization: `Bearer ${token}`,
-        "Content Type": "application/json",
-            },
-            //body: JSON.stringify(user)
+            "Content Type": "application/json"
+            }
+        }).then((response) => {
+            if (response.ok) {
+                return response.json()
+            } else {
+                alert("Update failed.")
+            }
+        }).then((data) => {
+            if (data) {
+                localStorage.setItem("user", JSON.stringify(data));
+                setUser(data);
+            }
         })
-        .then((response) => response.json())
-        .then(data => {
-            console.log("Updated User Data from SettingsView: ", data);
-        })
-        .then((user) => {
-        if (user) {
-            alert("Update successful.");
-            setUpdatedUser(true);
-        }   
-        })
-        .catch(e => {
-            alert(e);
-        });*/
-    }
+    };
 
     const deleteAccount = () => {
         fetch(`https://jmdb.herokuapp.com/users/delete/${user.username}`, {
@@ -76,7 +77,7 @@ export const SettingsView = ({ user, setToken }) => {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    onBlur={(e) => setUpdatedUser(e.target.value)}
+                    onBlur={(e) => setUser(e.target.value)}
                     minLength="4"
                     maxLength="24"
                     placeholder="Your username must be a minimum of 4 characters."
@@ -113,7 +114,7 @@ export const SettingsView = ({ user, setToken }) => {
                     placeholder="mm/dd/yyyy"
                 />
         </Form.Group>
-        <Button type="submit" onClick={updatedUser}>Submit</Button>
+        <Button type="submit" onClick={handleUpdate}>Submit</Button>
         <Button variant="danger" onClick={deleteAccount}>Delete Account</Button>
     </Form>
 )}

@@ -8,6 +8,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
+import { SettingsView } from "../profile-view/user-settings";
 
 export const MainView = () => {
     //keeps stored user credentials in local storage
@@ -59,13 +60,6 @@ useEffect(() => {
             console.log(error);
         });
     }, [token]);
-
-  //updates users state by taking users actions and putting them in setUser and then updating the new information to the users state
-  const updatedUser = (user) => {
-    setUser(user);
-    localStorage.setItem('user', JSON.stringify(user));
-  };
-  console.log("after updatedUser(): ", user);
 
 
     return(
@@ -165,11 +159,10 @@ useEffect(() => {
                         element={
                             <Col md={5}>
                                 <ProfileView 
-                                user={user}
-                                setToken={setToken}  
-                                movies={movies}
-                                isFavorite={isFavorite}
-                                updatedUser={updatedUser} />
+                                    user={user}
+                                    token={token}  
+                                    movies={movies}
+                                    isFavorite={isFavorite} />
                             </Col>
                         }
                     />
