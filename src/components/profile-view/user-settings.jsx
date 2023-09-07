@@ -74,8 +74,8 @@ export const SettingsView = ({ user, token, setUser }) => {
                 <Form.Control
                     type="text"
                     value={username}
+                    defaultValue={user.username}
                     onChange={(e) => setUsername(e.target.value)}
-                    onBlur={(e) => setUser(e.target.value)}
                     minLength="4"
                     maxLength="24"
                     placeholder="Your username must be a minimum of 4 characters."

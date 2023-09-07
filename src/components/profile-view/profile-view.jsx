@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { MainView } from "../main-view/main-view";
@@ -12,13 +12,13 @@ import { SettingsView } from "./user-settings";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
-export const ProfileView = ({ user, token, movies }) => {
+export const ProfileView = ({ user, token, movies, setUser }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ birthday, setBirthday ] = useState("");
     const [ isFavorite, setIsFavorite ] = useState("");
-    const [favoriteMovies, setFavoriteMovies] = useState("");
+    const [ favoriteMovies, setFavoriteMovies ] = useState("");
 
     //gets movie id from database and uses it as the parameters in the url
     const { movieId } = useParams();
@@ -65,17 +65,17 @@ return (
             </Col>
         </Row>
         <Row>
-            <Col>
+            <Col xs={12} md={4}>
                 <Card>
                     <Card.Body>
-                        <h2>User Information</h2>
+                        <h2>Your User Info</h2>
                         <p><span class="fw-bold">Username:</span> {user.Username}</p>
                         <p><span class="fw-bold">Email:</span> {user.Email}</p>
                         <p><span class="fw-bold">Birthday:</span> {user.Birthdate.slice(0,10)}</p>
                     </Card.Body>
                 </Card>
             </Col>
-            <Col>
+            <Col xs={12} md={8}>
                 <Card>
                     <Card.Body>
                         <h2>Update Something?</h2>

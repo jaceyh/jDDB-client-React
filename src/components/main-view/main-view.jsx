@@ -162,7 +162,8 @@ useEffect(() => {
                                     user={user}
                                     token={token}  
                                     movies={movies}
-                                    isFavorite={isFavorite} />
+                                    isFavorite={isFavorite}
+                                    setUser={setUser} />
                             </Col>
                         }
                     />
