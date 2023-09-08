@@ -16,7 +16,7 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState("");
-    const [ birthday, setBirthday ] = useState("");
+    const [ birthdate, setBirthdate ] = useState("");
     const [ isFavorite, setIsFavorite ] = useState("");
     const [ favoriteMovies, setFavoriteMovies ] = useState("");
 
@@ -65,17 +65,17 @@ return (
             </Col>
         </Row>
         <Row>
-            <Col xs={12} md={4}>
+            <Col>
                 <Card>
                     <Card.Body>
                         <h2>Your User Info</h2>
                         <p><span class="fw-bold">Username:</span> {user.Username}</p>
                         <p><span class="fw-bold">Email:</span> {user.Email}</p>
-                        <p><span class="fw-bold">Birthday:</span> {user.Birthdate.slice(0,10)}</p>
+                        <p><span class="fw-bold">Birthdate:</span> {user.Birthdate}</p>
                     </Card.Body>
                 </Card>
             </Col>
-            <Col xs={12} md={8}>
+            <Col>
                 <Card>
                     <Card.Body>
                         <h2>Update Something?</h2>

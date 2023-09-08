@@ -77,6 +77,7 @@ useEffect(() => {
                         setToken(null);
                         localStorage.clear();
                         window.location.reload();
+                        <Navigate to="/" />
                     }}
                     />
                 </Col>
@@ -86,7 +87,7 @@ useEffect(() => {
                         element={
                             <>
                                 {user ? (
-                                    <Navigate to="/" />
+                                    <Navigate to="/login" />
                                 ) : (
                                     <Col md={5}>
                                         <SignupView />

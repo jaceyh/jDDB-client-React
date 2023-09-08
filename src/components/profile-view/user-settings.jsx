@@ -10,7 +10,7 @@ export const SettingsView = ({ user, token, setUser }) => {
     const [ username, setUsername ] = useState(user.Username);
     const [ password, setPassword ] = useState("");
     const [ email, setEmail ] = useState(user.Email);
-    const [ birthday, setBirthday ] = useState(user.Birthdate);
+    const [ birthdate, setBirthdate ] = useState(user.Birthdate);
 
 
     console.log("user: ", user);
@@ -23,7 +23,7 @@ export const SettingsView = ({ user, token, setUser }) => {
             Username: username,
             Password: password,
             Email: email,
-            Birthdate: birthday,
+            Birthdate: birthdate,
         };
     
         if (!token || !user) return;
@@ -103,12 +103,12 @@ export const SettingsView = ({ user, token, setUser }) => {
                 />
         </Form.Group>
 
-        <Form.Group controlId="formBirthday">
-            <Form.Label>Birthday:</Form.Label>
+        <Form.Group controlId="formBirthdate">
+            <Form.Label>Birthdate:</Form.Label>
                 <Form.Control
                     type="date"
-                    value={birthday}
-                    onChange={(e) => setBirthday(e.target.value)}
+                    value={birthdate}
+                    onChange={(e) => setBirthdate(e.target.value)}
                     placeholder="mm/dd/yyyy"
                 />
         </Form.Group>

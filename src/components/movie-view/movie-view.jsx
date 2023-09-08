@@ -61,10 +61,11 @@ export const MovieView = ({ movies, user, setUser }) => {
                 alert("Successfully added to favorites");
                 setIsFavorite(true);
                 console.log("user after setIsFavorite: ", user);
-                user.FavMovies.push(movieId);
-                console.log("user after user.FavMovies.push(movieId): ", user);
+                //user.FavMovies.push(movieId);
                 setUser(user);
                 console.log("user after setUser(user):  ", user);
+                localStorage.setItem("user", JSON.stringify(user));
+                console.log("user after localStorage.setItem(user):  ", user);
             }
         })
         .catch(e => {
@@ -90,10 +91,12 @@ export const MovieView = ({ movies, user, setUser }) => {
                 alert("Successfully removed from favorites");
                 setIsFavorite(false);
                 console.log("user after setIsFavorite(false): ", user);
-                user.FavMovies = user.FavMovies.filter(id => id === movieId).slice();
-                console.log("user after user.FavMovies.filter().slice(): ", user);
+                //user.FavMovies = user.FavMovies.filter(id => id === movieId).slice();
+                //console.log("user after user.FavMovies.filter().slice(): ", user);
                 setUser(user);
                 console.log("user after setUser: ", user);
+                localStorage.setItem("user", JSON.stringify(user));
+                console.log("user after localStorage.setItem(user):  ", user);
             }
         })
         .catch(e => {
