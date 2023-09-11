@@ -30,16 +30,10 @@ export const MovieView = ({ movies, user, setUser }) => {
 
     const [isFavorite, setIsFavorite] = useState();
 
-    console.log("movies in movie-view.jsx:", movies);
-    console.log("movie in movie-view.jsx: ", movie);
-    console.log("movieId in movie-view.jsx: ", movieId);
-
     useEffect(() => {
-        console.log("user in movie-view.jsx:", user);
         if(user.FavMovies &&  user.FavMovies.includes(movieId) ){
             setIsFavorite(true);
         }
-        //setIsFavorite(user.FavMovies.includes(movieId));
         window.scrollTo(0, 0);
     }, [movieId])
 
@@ -60,12 +54,8 @@ export const MovieView = ({ movies, user, setUser }) => {
             if (user) {
                 alert("Successfully added to favorites");
                 setIsFavorite(true);
-                console.log("user after setIsFavorite: ", user);
-                //user.FavMovies.push(movieId);
                 setUser(user);
-                console.log("user after setUser(user):  ", user);
                 localStorage.setItem("user", JSON.stringify(user));
-                console.log("user after localStorage.setItem(user):  ", user);
             }
         })
         .catch(e => {
@@ -90,13 +80,8 @@ export const MovieView = ({ movies, user, setUser }) => {
             if (user) {
                 alert("Successfully removed from favorites");
                 setIsFavorite(false);
-                console.log("user after setIsFavorite(false): ", user);
-                //user.FavMovies = user.FavMovies.filter(id => id === movieId).slice();
-                //console.log("user after user.FavMovies.filter().slice(): ", user);
                 setUser(user);
-                console.log("user after setUser: ", user);
                 localStorage.setItem("user", JSON.stringify(user));
-                console.log("user after localStorage.setItem(user):  ", user);
             }
         })
         .catch(e => {

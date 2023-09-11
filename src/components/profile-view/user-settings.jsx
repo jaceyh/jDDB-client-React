@@ -26,7 +26,6 @@ export const SettingsView = ({ user, token, setUser }) => {
     
         if (!token || !user) return;
 
-        console.log(`https://jmdb.herokuapp.com/users/${user.Username}` )
         fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
             body: JSON.stringify(data),

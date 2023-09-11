@@ -23,39 +23,8 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
     //gets movie id from database and uses it as the parameters in the url
     const { movieId } = useParams();
 
-    console.log("user:", user);
-    console.log("movies: ", movies);
-
-
     const favMovies = movies.filter((movie) => user.FavMovies.includes(movie.id));
-    console.log("favMovies: ", favMovies);
-/*
-useEffect(() => {
-    const getUser = () => {
-        if (!token || !user) return;
-        fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
-            headers: { Authorization: `Bearer ${token}` },
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log("User Data from API: ", data);
-            const userInfo = {
-                username: data.Username,
-                email: data.Email,
-                birthday: data.Birthdate,
-                FavMovies: data.FavMovies /*data.FavMovies.map((movies) => movie={movies})*/ /*
-                };
-              console.log("User Info:", userInfo);
-              setFavoriteMovies(data.FavMovies);
-              setUserInfo(userInfo);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }
-    getUser();
-}, [token, user]);
-*/
+
 
 return (
     <Container>

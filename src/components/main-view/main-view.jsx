@@ -42,7 +42,6 @@ useEffect(() => {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log("Data from API: ", data);
             const moviesFromApi = data.map((movie) => {
                 return {
                     id: movie._id,
