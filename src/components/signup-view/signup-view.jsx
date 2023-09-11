@@ -7,7 +7,7 @@ export const SignupView = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-    const [birthday, setBirthday] = useState("");
+    const [birthdate, setBirthdate] = useState("");
 
     const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,7 +16,7 @@ export const SignupView = () => {
         Username: username,
         Password: password,
         Email: email,
-        Birthday: birthday
+        Birthdate: birthdate
     };
 
     fetch("https://jmdb.herokuapp.com/users", {
@@ -70,12 +70,12 @@ return (
             />
         </Form.Group>
 
-        <Form.Group controlId="formBirthday">
-            <Form.Label>Birthday:</Form.Label>
+        <Form.Group controlId="formBirthdate">
+            <Form.Label>Birthdate:</Form.Label>
             <Form.Control
                 type="date"
-                value={birthday}
-                onChange={(e) => setBirthday(e.target.value)}
+                value={birthdate}
+                onChange={(e) => setBirthdate(e.target.value)}
                 required
             />
         </Form.Group>
