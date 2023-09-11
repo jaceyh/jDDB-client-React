@@ -13,9 +13,6 @@ export const SettingsView = ({ user, token, setUser }) => {
     const [ birthdate, setBirthdate ] = useState(user.Birthdate);
 
 
-    console.log("user: ", user);
-    console.log("token: ", token);
-
     const handleUpdate = (event) => {
         event.preventDefault();
 
@@ -25,6 +22,7 @@ export const SettingsView = ({ user, token, setUser }) => {
             Email: email,
             Birthdate: birthdate,
         };
+
     
         if (!token || !user) return;
 
@@ -33,7 +31,7 @@ export const SettingsView = ({ user, token, setUser }) => {
             method: "PUT",
             body: JSON.stringify(data),
             headers: { Authorization: `Bearer ${token}`,
-            "Content Type": "application/json"
+            "Content-Type": "application/json"
             }
         }).then((response) => {
             if (response.ok) {
@@ -45,6 +43,7 @@ export const SettingsView = ({ user, token, setUser }) => {
             if (data) {
                 localStorage.setItem("user", JSON.stringify(data));
                 setUser(data);
+                alert("Update successful.")
             }
         })
     };

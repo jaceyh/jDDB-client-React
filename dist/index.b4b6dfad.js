@@ -46937,8 +46937,6 @@ const SettingsView = ({ user , token , setUser  })=>{
     const [password, setPassword] = (0, _react.useState)("");
     const [email, setEmail] = (0, _react.useState)(user.Email);
     const [birthdate, setBirthdate] = (0, _react.useState)(user.Birthdate);
-    console.log("user: ", user);
-    console.log("token: ", token);
     const handleUpdate = (event)=>{
         event.preventDefault();
         const data = {
@@ -46954,7 +46952,7 @@ const SettingsView = ({ user , token , setUser  })=>{
             body: JSON.stringify(data),
             headers: {
                 Authorization: `Bearer ${token}`,
-                "Content Type": "application/json"
+                "Content-Type": "application/json"
             }
         }).then((response)=>{
             if (response.ok) return response.json();
@@ -46963,6 +46961,7 @@ const SettingsView = ({ user , token , setUser  })=>{
             if (data) {
                 localStorage.setItem("user", JSON.stringify(data));
                 setUser(data);
+                alert("Update successful.");
             }
         });
     };
@@ -46992,7 +46991,7 @@ const SettingsView = ({ user , token , setUser  })=>{
                         children: "Username:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 73,
+                        lineNumber: 72,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47005,13 +47004,13 @@ const SettingsView = ({ user , token , setUser  })=>{
                         placeholder: "Your username must be a minimum of 4 characters."
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 74,
+                        lineNumber: 73,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 72,
+                lineNumber: 71,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47021,7 +47020,7 @@ const SettingsView = ({ user , token , setUser  })=>{
                         children: "Password:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 86,
+                        lineNumber: 85,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47032,13 +47031,13 @@ const SettingsView = ({ user , token , setUser  })=>{
                         placeholder: "Your password must be a minimum of 8 characters."
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 87,
+                        lineNumber: 86,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 85,
+                lineNumber: 84,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47048,7 +47047,7 @@ const SettingsView = ({ user , token , setUser  })=>{
                         children: "Email:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 97,
+                        lineNumber: 96,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47058,13 +47057,13 @@ const SettingsView = ({ user , token , setUser  })=>{
                         placeholder: "user@example.com"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 98,
+                        lineNumber: 97,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 96,
+                lineNumber: 95,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47074,7 +47073,7 @@ const SettingsView = ({ user , token , setUser  })=>{
                         children: "Birthdate:"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 107,
+                        lineNumber: 106,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47084,13 +47083,13 @@ const SettingsView = ({ user , token , setUser  })=>{
                         placeholder: "mm/dd/yyyy"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/user-settings.jsx",
-                        lineNumber: 108,
+                        lineNumber: 107,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 106,
+                lineNumber: 105,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -47099,7 +47098,7 @@ const SettingsView = ({ user , token , setUser  })=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 115,
+                lineNumber: 114,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -47108,13 +47107,13 @@ const SettingsView = ({ user , token , setUser  })=>{
                 children: "Delete Account"
             }, void 0, false, {
                 fileName: "src/components/profile-view/user-settings.jsx",
-                lineNumber: 116,
+                lineNumber: 115,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/user-settings.jsx",
-        lineNumber: 71,
+        lineNumber: 70,
         columnNumber: 9
     }, undefined);
 };
