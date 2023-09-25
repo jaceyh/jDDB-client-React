@@ -7,8 +7,8 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { SearchForm } from "../search-form/search-form";
 import { ProfileView } from "../profile-view/profile-view";
-import { SettingsView } from "../profile-view/user-settings";
 
 export const MainView = () => {
     //keeps stored user credentials in local storage
@@ -20,9 +20,6 @@ export const MainView = () => {
     
     //keeps track of tokens once a user logs in and stores it in storedToken state
     const [token, setToken] = useState(storedToken? storedToken : null);
-
-    //updateUser (state function)
-    //const [updateUser, setUpdateUser] = useState([]);
 
     //state puts movies from API into an array
     const [movies, setMovies] = useState([]);
@@ -59,6 +56,16 @@ useEffect(() => {
             console.log(error);
         });
     }, [token]);
+
+    const handleSearch = (searchTerm) => {
+		// Filter the movies based on the search term
+		const filteredMovies = movies.filter((movie) =>
+			movie.Title.toLowerCase().includes(searchTerm.toLowerCase())
+		);
+
+		// Update the movies state with the filtered results
+		setMovies(filteredMovies);
+	};
 
 
     return(
@@ -177,7 +184,13 @@ useEffect(() => {
                                     <Col>"The list is empty!"</Col>
                                 ) : (
                                     <>
-                                        {movies.map((movie) => (
+                                    <Row>
+                                        <Col>
+                                            <SearchForm onSearch={handleSearch} />
+                                        </Col>
+                                    </Row>
+
+                                    {movies.map((movie) => (
                                             <Col className="mb-5" md={4}>
                                                 <MovieCard 
                                                 movie={movie}
