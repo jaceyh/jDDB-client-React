@@ -59,12 +59,12 @@ return (
             </Col>
         </Row>
         <Row>
-            <Col xs={12}>
+            <Col className="mb-5" md={4}>
                 <Card>
                     <Card.Body>
                         <h2>Favorite Movies</h2>
                         {favMovies&&favMovies.map((movie) => (
-                        <Col className="mb-5" md={4}>
+                        <Col>
                             <MovieCard  
                             movie={movie} 
                             user={user} 
