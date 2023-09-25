@@ -64,7 +64,7 @@ return (
                     <Card.Body>
                         <h2>Favorite Movies</h2>
                         {favMovies&&favMovies.map((movie) => (
-                        <Col>
+                        <Col className="mb-5" md={4}>
                             <MovieCard  
                             movie={movie} 
                             user={user} 

@@ -157,7 +157,7 @@ useEffect(() => {
                     <Route
                         path="/users/:username"
                         element={
-                            <Col md={5}>
+                            <Col className="mb-5" md={12}>
                                 <ProfileView 
                                     user={user}
                                     token={token}  
