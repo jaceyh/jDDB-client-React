@@ -59,22 +59,20 @@ return (
             </Col>
         </Row>
         <Row>
-            <Col className="mb-5" md={4}>
-                <Card>
-                    <Card.Body>
-                        <h2>Favorite Movies</h2>
-                        {favMovies&&favMovies.map((movie) => (
-                        <Col>
-                            <MovieCard  
-                            movie={movie} 
-                            user={user} 
-                            token={token}
-                            key={movie._id} />
-                        </Col>
-                        ))}
-                    </Card.Body>
-                </Card>
-            </Col>
+            <Card>
+                <Card.Body>
+                    <h2>Favorite Movies</h2>
+                    {favMovies&&favMovies.map((movie) => (
+                    <Col className="mb-5" md={4}>
+                        <MovieCard  
+                        movie={movie} 
+                        user={user} 
+                        token={token}                            
+                        key={movie._id} />
+                    </Col>
+                    ))}
+                </Card.Body>
+            </Card>
         </Row>
     </Container>
 )};
