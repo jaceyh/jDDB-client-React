@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 export const MovieCard = ({ movie }) => {
     return (
-        <Card>
+        <Card border="primary" className="even">
             <Card.Img variant="top" src={movie.image} />
             <Card.Body>
                 <Card.Title>{movie.name}</Card.Title>
