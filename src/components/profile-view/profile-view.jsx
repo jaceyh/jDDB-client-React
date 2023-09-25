@@ -29,7 +29,7 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
 return (
     <Container>
         <Row>
-            <Col>            
+            <Col>
                 <h1>{user.Username}'s Profile</h1>
             </Col>
         </Row>
@@ -44,7 +44,7 @@ return (
                     </Card.Body>
                 </Card>
             </Col>
-            <Col>
+            <Col xs={6} md={6}>
                 <Card>
                     <Card.Body>
                         <h2>Update Something?</h2>
@@ -59,7 +59,7 @@ return (
             </Col>
         </Row>
         <Row>
-            <Col>
+            <Col xs={12}>
                 <Card>
                     <Card.Body>
                         <h2>Favorite Movies</h2>
