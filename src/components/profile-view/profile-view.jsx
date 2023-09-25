@@ -28,42 +28,45 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
 
 return (
     <Container>
-        <Row>
-            <Col>
-                <h1>{user.Username}'s Profile</h1>
-            </Col>
-        </Row>
-        <Row>
-            <Col>
-                <Card>
-                    <Card.Body>
-                        <h2>Your User Info</h2>
-                        <p><span class="fw-bold">Username:</span> {user.Username}</p>
-                        <p><span class="fw-bold">Email:</span> {user.Email}</p>
-                        <p><span class="fw-bold">Birthdate:</span> {user.Birthdate}</p>
-                    </Card.Body>
-                </Card>
-            </Col>
-            <Col xs={6} md={6}>
-                <Card>
-                    <Card.Body>
-                        <h2>Update Something?</h2>
-                        <p><SettingsView 
+        <Container>
+            <Row>
+                <Col>
+                    <h1>{user.Username}'s Profile</h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <h2>Your User Info</h2>
+                            <p><span class="fw-bold">Username:</span> {user.Username}</p>
+                            <p><span class="fw-bold">Email:</span> {user.Email}</p>
+                            <p><span class="fw-bold">Birthdate:</span> {user.Birthdate}</p>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col xs={6} md={6}>
+                    <Card>
+                        <Card.Body>
+                            <h2>Update Something?</h2>
+                            <p><SettingsView 
                             user={user}
                             token={token}
                             movies={movies}
                             setUser={setUser} />
-                        </p>
+                            </p>
                     </Card.Body>
                 </Card>
-            </Col>
-        </Row>
-        <Row>
-            <Card>
-                <Card.Body>
-                    <h2>Favorite Movies</h2>
+                </Col>
+            </Row>
+        </Container>
+            <Container>
+                <Row>
+                <h2>Favorite Movies</h2>
+                </Row>
+                <Row>
                     {favMovies&&favMovies.map((movie) => (
-                    <Col className="mb-5" md={4}>
+                    <Col>
                         <MovieCard  
                         movie={movie} 
                         user={user} 
@@ -71,8 +74,7 @@ return (
                         key={movie._id} />
                     </Col>
                     ))}
-                </Card.Body>
-            </Card>
-        </Row>
-    </Container>
+                </Row>
+            </Container>
+        </Container>
 )};
