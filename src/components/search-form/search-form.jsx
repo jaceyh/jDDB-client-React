@@ -9,7 +9,7 @@ export const SearchForm = ({onSearch}) => {
         const newSearch = e.target.value;
         setSearch(newSearch);
        
-            if (newSearch === '') {
+        if (newSearch === '') {
           onSearch('');
         } else {
           onSearch(newSearch);

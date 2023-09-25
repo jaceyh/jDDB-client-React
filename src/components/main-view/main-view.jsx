@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Stack from "react-bootstrap/Stack";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
@@ -60,7 +61,7 @@ useEffect(() => {
     const handleSearch = (searchTerm) => {
 		// Filter the movies based on the search term
 		const filteredMovies = movies.filter((movie) =>
-			movie.Title.toLowerCase().includes(searchTerm.toLowerCase())
+			movie.name.toLowerCase().includes(searchTerm.toLowerCase())
 		);
 
 		// Update the movies state with the filtered results
@@ -184,14 +185,15 @@ useEffect(() => {
                                     <Col>"The list is empty!"</Col>
                                 ) : (
                                     <>
-                                    <Row>
-                                        <Col>
-                                            <SearchForm onSearch={handleSearch} />
-                                        </Col>
-                                    </Row>
-
+                                    <Stack gap={3}>
+                                        <Row className="justify-content-md-center">
+                                            <Col>
+                                                <SearchForm onSearch={handleSearch} />
+                                            </Col>
+                                        </Row>
+                                    </Stack>
                                     {movies.map((movie) => (
-                                            <Col className="mb-5" md={4}>
+                                            <Col className="mb-5" xs={6} md={4}>
                                                 <MovieCard 
                                                 movie={movie}
                                                 key={movie._id}
