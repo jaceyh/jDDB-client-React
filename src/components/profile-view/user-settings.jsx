@@ -26,7 +26,7 @@ export const SettingsView = ({ user, token, setUser }) => {
     
         if (!token || !user) return;
 
-        fetch(`https://jmdb.herokuapp.com/users/${user.Username}`, {
+        fetch(`https://54.87.97.178/users/${user.Username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: { Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ export const SettingsView = ({ user, token, setUser }) => {
     };
 
     const deleteAccount = () => {
-        fetch(`https://jmdb.herokuapp.com/users/delete/${user.username}`, {
+        fetch(`https://54.87.97.178/users/delete/${user.username}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` }
         })

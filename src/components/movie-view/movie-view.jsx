@@ -38,7 +38,7 @@ export const MovieView = ({ movies, user, setUser }) => {
     }, [movieId])
 
     const addFavorite = () => {
-        fetch(`https://jmdb.herokuapp.com/users/${user.Username}/movies/${movieId}`, {
+        fetch(`https://54.87.97.178/users/${user.Username}/movies/${movieId}`, {
             method: "POST",
             headers: { Authorization: `Bearer ${token}` }
         })

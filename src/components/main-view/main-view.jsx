@@ -35,7 +35,7 @@ useEffect(() => {
     console.log("Token: ", token);
     console.log("User: ", user)
     if (!token) return;
-    fetch("https://jmdb.herokuapp.com/movies", {
+    fetch("http://54.87.97.178/movies", {
         headers: { Authorization: `Bearer ${token}` },
     })
         .then((response) => response.json())
